@@ -1,6 +1,12 @@
-# insta_calculator
+<h1>About</h1>
 
-A new Flutter application.
+<h3>InstaCalc is a calculator made with the Flutter framework <br>
+Supports basic calculation.</h3>
+
+<h1>A debug preview</h1>
+
+![Screenshot_20210514_131011](https://user-images.githubusercontent.com/72333092/118238157-c4470100-b4b5-11eb-9fb3-94c35e479722.png)
+
 
 ## Getting Started
 
