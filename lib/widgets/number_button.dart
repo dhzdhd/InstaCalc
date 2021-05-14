@@ -1,4 +1,8 @@
+
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../model/calculate.dart';
 
 class NumberButton extends StatelessWidget {
   static const top = Color.fromARGB(242, 41, 53, 79);
@@ -10,6 +14,8 @@ class NumberButton extends StatelessWidget {
   final topGradient;
   final bottomGradient;
   final splashColor;
+  final String choice;
+  final String secChoice;
 
   NumberButton(
     this.text,
@@ -17,7 +23,9 @@ class NumberButton extends StatelessWidget {
     {
       this.topGradient = top,
       this.bottomGradient = bottom,
-      this.splashColor = splash
+      this.splashColor = splash,
+      this.choice = 'add',
+      this.secChoice = 'pass'
     }
   );
 
@@ -63,7 +71,24 @@ class NumberButton extends StatelessWidget {
           child: InkWell(
             borderRadius: BorderRadius.circular(borderSize),
             splashColor: this.splashColor,
-            onTap: () => null,
+            onTap: () {
+              if (this.choice == 'add') {
+                Provider.of<CalculateModel>(context, listen: false).add(
+                    this.val);
+              } else if (this.choice == 'cls') {
+                Provider.of<CalculateModel>(context, listen: false).clear();
+              } else if (this.choice == 'equal'){
+                Provider.of<CalculateModel>(context, listen: false).calculate();
+              }
+            },
+            onLongPress: () {
+              if (this.secChoice == 'cls') {
+                Provider.of<CalculateModel>(context, listen: false).clear();
+                Provider.of<CalculateModel>(context, listen: false).clearTop();
+              } else {
+                print('');
+              }
+            },
             child: Container(
               padding: EdgeInsets.all(12),
               child: Center(

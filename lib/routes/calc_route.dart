@@ -2,17 +2,29 @@ import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:provider/provider.dart';
 
 import '../common/menu_drawer.dart';
 import '../widgets/number_button.dart';
+import '../model/calculate.dart';
 
 class CalculatorRoute extends StatelessWidget {
+  final Shader linearGradient = LinearGradient(
+    colors: <Color>[Color(0xfff503e9), Color(0xff587cee)],
+  ).createShader(Rect.fromLTWH(0.0, 0.0, 500.0, 70.0));
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Calculator'
+        title: Center(
+          child: Text(
+            'InstaCalc',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              foreground: Paint()..shader = linearGradient
+            )
+          ),
         ),
         actions: [
           IconButton(
@@ -62,11 +74,15 @@ class DisplayContainer extends StatelessWidget {
                 children: [
                   Align(
                     alignment: Alignment.bottomRight,
-                    child: Text(
-                      '23523',
-                      style: TextStyle(
-                        fontSize: MediaQuery.of(context).size.height / 16
-                      ),
+                    child: Consumer<CalculateModel>(
+                      builder: (context, calc, child) {
+                        return Text(
+                          calc.finalText.join(),
+                          style: TextStyle(
+                              fontSize: MediaQuery.of(context).size.height / 16
+                          ),
+                        );
+                      },
                     )
                   )
                 ],
@@ -84,11 +100,15 @@ class DisplayContainer extends StatelessWidget {
                 children: [
                   Align(
                     alignment: Alignment.centerRight,
-                    child: Text(
-                      '23527473',
-                      style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height / 12
-                      ),
+                    child: Consumer<CalculateModel>(
+                      builder: (context, calc, child) {
+                        return Text(
+                          calc.toBeParsed.join(),
+                          style: TextStyle(
+                              fontSize: MediaQuery.of(context).size.height / 12
+                          ),
+                        );
+                      },
                     )
                   )
                 ],
@@ -111,17 +131,20 @@ class ButtonContainer extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            SizedBox(height: 5,),
             Expanded(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Flexible(child: NumberButton('%', '%')),
+                  Flexible(child: NumberButton('C', 'C', choice: 'cls',
+                    secChoice: 'cls',)),
                   Flexible(child: NumberButton('(', '(')),
                   Flexible(child: NumberButton(')', ')')),
-                  Flexible(child: NumberButton('/', '/')),
+                  Flexible(child: NumberButton('÷', '/')),
                 ],
               ),
             ),
+            SizedBox(height: 5,),
             Expanded(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -129,10 +152,11 @@ class ButtonContainer extends StatelessWidget {
                   Flexible(child: NumberButton('7', '7')),
                   Flexible(child: NumberButton('8', '8')),
                   Flexible(child: NumberButton('9', '9')),
-                  Flexible(child: NumberButton('x', 'x')),
+                  Flexible(child: NumberButton('x', '*')),
                 ],
               ),
             ),
+            SizedBox(height: 5,),
             Expanded(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -144,6 +168,7 @@ class ButtonContainer extends StatelessWidget {
                 ],
               ),
             ),
+            SizedBox(height: 5,),
             Expanded(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -155,11 +180,12 @@ class ButtonContainer extends StatelessWidget {
                 ],
               ),
             ),
+            SizedBox(height: 5,),
             Expanded(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Flexible(child: NumberButton('00', '00')),
+                  Flexible(child: NumberButton('%', '%')),
                   Flexible(child: NumberButton('0', '0')),
                   Flexible(child: NumberButton('.', '.')),
                   Flexible(
@@ -169,11 +195,13 @@ class ButtonContainer extends StatelessWidget {
                       topGradient: Color.fromARGB(242, 217, 20, 175),
                       bottomGradient: Color.fromARGB(242, 57, 25, 146),
                       splashColor: Color.fromARGB(255, 187, 23, 193),
+                      choice: 'equal',
                     )
                   ),
                 ],
               ),
             ),
+            SizedBox(height: 5,),
           ],
         )
       )
