@@ -7,7 +7,7 @@ packages:
       name: async
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.5.0"
+    version: "2.6.1"
   boolean_selector:
     dependency: transitive
     description:
@@ -43,13 +43,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.15.0"
-  cupertino_icons:
-    dependency: "direct main"
-    description:
-      name: cupertino_icons
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.3"
   expression_language:
     dependency: "direct main"
     description:
@@ -69,6 +62,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_neumorphic:
+    dependency: "direct main"
+    description:
+      name: flutter_neumorphic
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.1.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter

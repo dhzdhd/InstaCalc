@@ -1,31 +1,38 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:insta_calculator/models/calc.dart';
+import 'package:insta_calculator/models/theme.dart';
+import 'package:insta_calculator/routes/home/home.dart';
+import 'package:insta_calculator/routes/settings.dart';
 import 'package:provider/provider.dart';
-
-import 'common/theme.dart';
-import 'model/calculate.dart';
-import 'routes/calc_route.dart';
-import 'routes/settings_route.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => CalculateModel())
+        ChangeNotifierProvider(create: (context) => ThemeModel()),
+        ChangeNotifierProvider(create: (context) => CalculateModel()),
       ],
-      child: MaterialApp(
-        title: 'InstaCalc',
-        theme: darkTheme,
-        initialRoute: '/',
-        routes: {
-          '/': (context) => CalculatorRoute(),
-          '/settings': (context) => SettingsRoute()
+      child: Consumer<ThemeModel>(
+        builder: (builder, model, child) {
+          return ConstrainedBox(
+            constraints: BoxConstraints(minWidth: 2000),
+            child: NeumorphicApp(
+              debugShowCheckedModeBanner: false,
+              title: "InstaCalc",
+              theme: model.theme,
+              initialRoute: '/',
+              routes: <String, Widget Function(BuildContext)>{
+                '/': (context) => HomeRoute(),
+                '/settings': (context) => SettingsRoute(),
+              },
+            ),
+          );
         },
-      )
+      ),
     );
   }
 }
