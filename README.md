@@ -1,9 +1,7 @@
 ## About
 
-### InstaCalc is a calculator made with the Flutter framework 
-### Supports basic calculation.
-
-## A debug preview
+InstaCalc is a calculator made with the Flutter framework 
+Supports basic calculation.
 
 ## Preview
 ### Home
