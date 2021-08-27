@@ -51,12 +51,6 @@ flutter:
   fonts:
     - family: Cairo
       fonts:
-        - asset: lib/assets/fonts/Cairo-SemiBold.ttf
+        - asset: assets/fonts/Cairo-SemiBold.ttf
           weight: 700
-    - family: Cabin
-      fonts:
-        - asset: lib/assets/fonts/Cabin_SemiCondensed-Bold.ttf
-    - family: Urbanist
-      fonts: 
-        - asset: lib/assets/fonts/Urbanist-SemiBold.ttf
 
