@@ -43,6 +43,9 @@ final lightTheme = NeumorphicThemeData(
 final darkTextColor = Color.fromARGB(255, 255, 230, 230);
 final darkTextStyle = TextStyle(color: darkTextColor, fontFamily: 'Cairo');
 final darkTheme = NeumorphicThemeData(
+  shadowLightColor: Color.fromARGB(255, 46, 46, 61),
+  shadowLightColorEmboss: Color.fromARGB(255, 46, 46, 61),
+  shadowDarkColor: Color.fromARGB(255, 20, 20, 20),
   baseColor: Color.fromARGB(255, 46, 46, 61),
   appBarTheme: NeumorphicAppBarThemeData(
     iconTheme: IconThemeData(color: darkTextColor),
@@ -80,17 +83,20 @@ final darkTheme = NeumorphicThemeData(
 
 class ThemeModel extends ChangeNotifier {
   var theme = lightTheme;
+  static Color nonIntColor = Color.fromARGB(255, 219, 219, 249);
 
   void changeTheme(String mode) {
     switch (mode) {
       case 'light':
         {
           theme = lightTheme;
+          nonIntColor = Color.fromARGB(255, 219, 219, 249);
           break;
         }
       case 'dark':
         {
           theme = darkTheme;
+          nonIntColor = Color.fromARGB(255, 100, 100, 50);
           break;
         }
     }

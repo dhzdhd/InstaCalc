@@ -9,6 +9,7 @@ class HomeRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: NeumorphicAppBar(
         title: Text("InstaCalc"),
         actions: [

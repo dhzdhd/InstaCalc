@@ -3,7 +3,12 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:insta_calculator/models/calc.dart';
 import 'package:provider/provider.dart';
 
-class FieldContainer extends StatelessWidget {
+class FieldContainer extends StatefulWidget {
+  @override
+  _FieldContainerState createState() => _FieldContainerState();
+}
+
+class _FieldContainerState extends State<FieldContainer> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -26,7 +31,7 @@ class FieldContainer extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.only(right: 20),
                     child: Text(
-                      '100x100',
+                      CalculateModel.topText,
                       style:
                           TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                     ),
@@ -39,10 +44,16 @@ class FieldContainer extends StatelessWidget {
                   alignment: Alignment.centerRight,
                   child: Padding(
                     padding: EdgeInsets.only(right: 15),
-                    child: Text(
-                      '10,000',
-                      style:
-                          TextStyle(fontSize: 70, fontWeight: FontWeight.bold),
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      reverse: true,
+                      children: [
+                        Text(
+                          CalculateModel.bottomText,
+                          style: TextStyle(
+                              fontSize: 70, fontWeight: FontWeight.bold),
+                        )
+                      ],
                     ),
                   ),
                 ),
