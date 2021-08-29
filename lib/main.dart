@@ -1,12 +1,21 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:insta_calculator/models/calc.dart';
 import 'package:insta_calculator/models/theme.dart';
+import 'package:insta_calculator/routes/history.dart';
 import 'package:insta_calculator/routes/home/home.dart';
 import 'package:insta_calculator/routes/settings.dart';
 import 'package:provider/provider.dart';
 
 void main() {
   runApp(MyApp());
+}
+
+class RemoveSplashBehaviour extends ScrollBehavior {
+  @override
+  Widget buildOverscrollIndicator(
+      BuildContext context, Widget child, ScrollableDetails scrollableDetails) {
+    return child;
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -21,6 +30,12 @@ class MyApp extends StatelessWidget {
           return ConstrainedBox(
             constraints: BoxConstraints(minWidth: 2000),
             child: NeumorphicApp(
+              builder: (context, child) {
+                return ScrollConfiguration(
+                  behavior: RemoveSplashBehaviour(),
+                  child: child as Widget,
+                );
+              },
               debugShowCheckedModeBanner: false,
               title: "InstaCalc",
               theme: model.theme,
@@ -28,6 +43,7 @@ class MyApp extends StatelessWidget {
               routes: <String, Widget Function(BuildContext)>{
                 '/': (context) => HomeRoute(),
                 '/settings': (context) => SettingsRoute(),
+                '/history': (context) => HistoryRoute(),
               },
             ),
           );

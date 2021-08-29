@@ -57,7 +57,7 @@ class DrawerFields extends StatelessWidget {
               child: CustomDrawerButton(
                 text: 'History',
                 icon: Icons.history,
-                func: () => null,
+                func: () => Navigator.of(context).popAndPushNamed('/history'),
               ),
             ),
             Spacer(),

@@ -1,5 +1,6 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:insta_calculator/models/calc.dart';
+import 'package:insta_calculator/routes/history.dart';
 import 'package:insta_calculator/routes/home/buttons.dart';
 import 'package:insta_calculator/routes/home/fields.dart';
 import 'package:insta_calculator/widgets/drawer.dart';
@@ -13,9 +14,12 @@ class HomeRoute extends StatelessWidget {
       appBar: NeumorphicAppBar(
         title: Text("InstaCalc"),
         actions: [
-          NeumorphicButton(
-            child: Icon(Icons.history),
-            onPressed: () => print('fe'),
+          Hero(
+            tag: 'history',
+            child: NeumorphicButton(
+              child: Icon(Icons.history),
+              onPressed: () => Navigator.of(context).pushNamed('/history'),
+            ),
           ),
         ],
       ),

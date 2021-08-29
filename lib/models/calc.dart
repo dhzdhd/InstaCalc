@@ -5,22 +5,33 @@ class CalculateModel extends ChangeNotifier {
   static var topText = '';
   static var bottomText = '';
 
-  String eval(String expr) {
-    expr = expr.replaceAll('x', '*');
-    expr = expr.replaceAll('^', '**');
+  String evaluate(String expr) {
+    if (expr == '') return '';
 
+    expr = expr.replaceAll('x', '*');
+
+    double eval = 0;
     Parser p = Parser();
-    Expression exp = p.parse(expr);
     ContextModel cm = ContextModel();
-    double eval = exp.evaluate(EvaluationType.REAL, cm);
-    return eval.toString();
+
+    try {
+      Expression exp = p.parse(expr);
+      eval = exp.evaluate(EvaluationType.REAL, cm);
+    } on RangeError catch (_) {
+      return 'Invalid expression';
+    }
+
+    String answer = eval.toString();
+    return answer == 'Infinity'
+        ? answer
+        : answer.substring(0, answer.length - 2);
   }
 
   void calculate(String char) {
     bottomText += char;
 
     if (char.contains(RegExp('[0-9]'))) {
-      final answer = eval(bottomText);
+      final answer = evaluate(bottomText);
       topText = answer;
     }
 
@@ -32,11 +43,16 @@ class CalculateModel extends ChangeNotifier {
       topText = '';
       bottomText = '';
     } else {
-      bottomText = bottomText.substring(0, bottomText.length - 1);
+      if (bottomText != '') {
+        bottomText = bottomText.substring(0, bottomText.length - 1);
 
-      if (bottomText[bottomText.length - 1].contains(RegExp('[0-9]'))) {
-        final answer = eval(bottomText);
-        topText = answer;
+        if (bottomText.length == 0) {
+          return clear(all: true);
+        }
+        if (bottomText[bottomText.length - 1].contains(RegExp('[0-9]'))) {
+          final answer = evaluate(bottomText);
+          topText = answer;
+        }
       }
     }
 
@@ -44,7 +60,11 @@ class CalculateModel extends ChangeNotifier {
   }
 
   void equate() {
-    final answer = eval(bottomText);
+    final answer = evaluate(bottomText);
+
+    if (answer == 'Invalid expression' || answer == 'Infinity') {
+      return;
+    }
     bottomText = answer;
     topText = '';
 
