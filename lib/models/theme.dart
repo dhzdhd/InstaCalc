@@ -96,7 +96,7 @@ class ThemeModel extends ChangeNotifier {
       case 'dark':
         {
           theme = darkTheme;
-          nonIntColor = Color.fromARGB(255, 100, 100, 50);
+          nonIntColor = Color.fromARGB(255, 40, 40, 35);
           break;
         }
     }

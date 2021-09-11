@@ -23,8 +23,10 @@ dependencies:
     sdk: flutter
 
   provider: '>=5.0.0-nullsafety.5 <6.0.0'
-  flutter_neumorphic: ^3.1.0
-  # glassmorphism: ^2.0.1
+  flutter_neumorphic: 
+    # ^3.0.3
+    git:
+      url: "https://github.com/alionour/Flutter-Neumorphic"
 
   expression_language: ^1.0.0
   math_expressions: ^2.2.0
