@@ -24,7 +24,9 @@ class CalculateModel extends ChangeNotifier {
     String answer = eval.toString();
     return answer == 'Infinity'
         ? answer
-        : answer.substring(0, answer.length - 2);
+        : answer.endsWith('.0')
+            ? answer.substring(0, answer.length - 2)
+            : answer;
   }
 
   void calculate(String char) {
