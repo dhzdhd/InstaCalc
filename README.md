@@ -1,22 +1,34 @@
+# InstaCalc
+
 ## About
 
 InstaCalc is a calculator made with the Flutter framework.
 Supports basic calculation.
 
 ## Platform support
+
 Currently planned to support all platforms including Android, iOS, macOS, Windows and the web.
 
 ## Preview
+
 ### Home
+
 ![Home](assets/images/readme/home.png)
 
 ### Drawer
+
 ![Drawer](assets/images/readme/drawer.png)
 
 ### Settings
+
 ![Settings](assets/images/readme/settings.png)
 
+### Dark mode
+
+![Dark](assets/images/readme/dark.png)
+
 ## Contributing
+
 ...
 
 ## Getting Started
