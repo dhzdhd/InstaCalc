@@ -15,7 +15,7 @@ class ThemeSettingTile extends StatefulWidget {
 class _ThemeSettingTileState extends State<ThemeSettingTile>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  Theme groupValue = Theme.light;
+  Theme? groupValue;
   double height = 80;
   bool visible = false;
 

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:insta_calculator/models/modes.dart';
 import 'package:insta_calculator/widgets/drawer_button.dart';
+import 'package:provider/provider.dart';
 
 class CustomDrawer extends StatelessWidget {
   @override
@@ -14,7 +16,7 @@ class CustomDrawer extends StatelessWidget {
               child: DrawerHeader(
                   child: Row(
                 children: [
-                  Flexible(
+                  Expanded(
                     flex: 9,
                     child: Text(
                       "InstaCalc",
@@ -53,16 +55,56 @@ class DrawerFields extends StatelessWidget {
         child: Column(
           children: [
             Padding(
+              padding: EdgeInsets.only(bottom: 3),
+              child: CustomDrawerButton(
+                text: 'Simple',
+                icon: Icons.calculate,
+                func: () {
+                  Navigator.of(context).pop();
+                  Provider.of<ModeModel>(context, listen: false)
+                      .changeMode('simple');
+                },
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(bottom: 3),
+              child: CustomDrawerButton(
+                text: 'Scientific',
+                icon: Icons.science,
+                func: () {
+                  Navigator.of(context).pop();
+                  Provider.of<ModeModel>(context, listen: false)
+                      .changeMode('scientific');
+                },
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(bottom: 3),
+              child: CustomDrawerButton(
+                text: 'Currency',
+                icon: Icons.monetization_on,
+                func: () {
+                  Navigator.of(context).pop();
+                  Provider.of<ModeModel>(context, listen: false)
+                      .changeMode('currency');
+                },
+              ),
+            ),
+            Padding(
               padding: EdgeInsets.only(bottom: 5),
               child: CustomDrawerButton(
-                text: 'History',
-                icon: Icons.history,
-                func: () => Navigator.of(context).popAndPushNamed('/history'),
+                text: 'Units',
+                icon: Icons.format_list_numbered,
+                func: () {
+                  Navigator.of(context).pop();
+                  Provider.of<ModeModel>(context, listen: false)
+                      .changeMode('units');
+                },
               ),
             ),
             Spacer(),
             Padding(
-              padding: EdgeInsets.only(bottom: 5),
+              padding: EdgeInsets.only(bottom: 3),
               child: CustomDrawerButton(
                 text: 'Help',
                 icon: Icons.help,

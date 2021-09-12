@@ -1,6 +1,7 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import 'package:insta_calculator/routes/modes/simple/simple.dart';
+import 'package:insta_calculator/models/modes.dart';
 import 'package:insta_calculator/widgets/drawer.dart';
+import 'package:provider/provider.dart';
 
 class HomeRoute extends StatelessWidget {
   @override
@@ -8,7 +9,12 @@ class HomeRoute extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: NeumorphicAppBar(
-        title: Text("InstaCalc"),
+        padding: 18,
+        title: Consumer<ModeModel>(
+          builder: (context, model, child) {
+            return Text(model.title);
+          },
+        ),
         actions: [
           Hero(
             tag: 'history',
@@ -20,7 +26,9 @@ class HomeRoute extends StatelessWidget {
         ],
       ),
       drawer: CustomDrawer(),
-      body: SimpleContentContainer(),
+      body: Consumer<ModeModel>(builder: (context, model, child) {
+        return model.currentMode;
+      }),
     );
   }
 }

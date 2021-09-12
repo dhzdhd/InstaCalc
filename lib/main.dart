@@ -1,12 +1,14 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:insta_calculator/models/calc.dart';
+import 'package:insta_calculator/models/modes.dart';
 import 'package:insta_calculator/models/theme.dart';
 import 'package:insta_calculator/routes/history.dart';
 import 'package:insta_calculator/routes/home.dart';
 import 'package:insta_calculator/routes/settings.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
@@ -24,6 +26,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => ThemeModel()),
         ChangeNotifierProvider(create: (context) => CalculateModel()),
+        ChangeNotifierProvider(create: (context) => ModeModel())
       ],
       child: Consumer<ThemeModel>(
         builder: (builder, model, child) {
