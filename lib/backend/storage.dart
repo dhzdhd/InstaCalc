@@ -7,12 +7,17 @@ class MapData {
     _prefs = await SharedPreferences.getInstance();
   }
 
-  static Future<void> storeThemeData(String theme) async {
-    await _prefs.setString('theme', theme);
+  static Future<void> storeData(
+      {required String key, required String value}) async {
+    await _prefs.setString(key, value);
   }
 
-  static String getThemeData() {
-    final theme = _prefs.getString('theme') ?? 'light';
+  static String getData({required String key}) {
+    final theme = _prefs.getString(key) ?? '';
     return theme;
+  }
+
+  static void removeData() async {
+    await _prefs.clear();
   }
 }

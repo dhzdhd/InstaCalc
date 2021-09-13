@@ -85,7 +85,7 @@ final darkTheme = NeumorphicThemeData(
 );
 
 class ThemeModel extends ChangeNotifier {
-  static final themeValue = MapData.getThemeData();
+  static final themeValue = MapData.getData(key: 'theme');
 
   final equalColor = Color.fromARGB(255, 81, 81, 130);
   Color baseColor = themeValue == 'light' ? lightBaseColor : darkBaseColor;
@@ -103,7 +103,7 @@ class ThemeModel extends ChangeNotifier {
           baseColor = lightBaseColor;
           nonIntColor = Color.fromARGB(255, 219, 219, 249);
 
-          await MapData.storeThemeData('light');
+          await MapData.storeData(key: 'theme', value: 'light');
 
           break;
         }
@@ -113,7 +113,7 @@ class ThemeModel extends ChangeNotifier {
           baseColor = darkBaseColor;
           nonIntColor = Color.fromARGB(255, 55, 55, 70);
 
-          await MapData.storeThemeData('dark');
+          await MapData.storeData(key: 'theme', value: 'dark');
 
           break;
         }

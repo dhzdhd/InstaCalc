@@ -1,5 +1,5 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import 'package:insta_calculator/widgets/settings_tiles.dart';
+import 'package:insta_calculator/widgets/theme_settings_tile.dart';
 
 class SettingsRoute extends StatelessWidget {
   @override
