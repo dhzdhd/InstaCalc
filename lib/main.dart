@@ -1,4 +1,5 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:insta_calculator/backend/storage.dart';
 import 'package:insta_calculator/models/calc.dart';
 import 'package:insta_calculator/models/modes.dart';
 import 'package:insta_calculator/models/theme.dart';
@@ -9,6 +10,7 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await MapData.init();
   runApp(MyApp());
 }
 

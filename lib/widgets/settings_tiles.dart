@@ -104,11 +104,12 @@ class _ThemeSettingTileState extends State<ThemeSettingTile>
                             child: Icon(Icons.dark_mode),
                             groupValue: groupValue,
                             value: Theme.dark,
-                            onChanged: (value) {
+                            onChanged: (value) async {
+                              await Provider.of<ThemeModel>(context,
+                                      listen: false)
+                                  .changeTheme('dark');
                               setState(() {
                                 groupValue = value as Theme;
-                                Provider.of<ThemeModel>(context, listen: false)
-                                    .changeTheme('dark');
                               });
                             },
                           ),
@@ -124,11 +125,12 @@ class _ThemeSettingTileState extends State<ThemeSettingTile>
                             child: Icon(Icons.light_mode_rounded),
                             groupValue: groupValue,
                             value: Theme.light,
-                            onChanged: (value) {
+                            onChanged: (value) async {
+                              await Provider.of<ThemeModel>(context,
+                                      listen: false)
+                                  .changeTheme('light');
                               setState(() {
                                 groupValue = value as Theme;
-                                Provider.of<ThemeModel>(context, listen: false)
-                                    .changeTheme('light');
                               });
                             },
                           ),

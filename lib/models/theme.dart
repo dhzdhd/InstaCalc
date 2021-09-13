@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:insta_calculator/backend/storage.dart';
 
 final lightBaseColor = Color.fromARGB(255, 235, 235, 255);
 final lightTextColor = Color.fromARGB(255, 77, 77, 123);
@@ -84,18 +85,26 @@ final darkTheme = NeumorphicThemeData(
 );
 
 class ThemeModel extends ChangeNotifier {
-  final equalColor = Color.fromARGB(255, 81, 81, 130);
-  Color baseColor = lightBaseColor;
-  Color nonIntColor = Color.fromARGB(255, 219, 219, 249);
-  var theme = lightTheme;
+  static final themeValue = MapData.getThemeData();
 
-  void changeTheme(String mode) {
+  final equalColor = Color.fromARGB(255, 81, 81, 130);
+  Color baseColor = themeValue == 'light' ? lightBaseColor : darkBaseColor;
+  Color nonIntColor = themeValue == 'light'
+      ? Color.fromARGB(255, 219, 219, 249)
+      : Color.fromARGB(255, 55, 55, 70);
+
+  var theme = themeValue == 'light' ? lightTheme : darkTheme;
+
+  Future<void> changeTheme(String mode) async {
     switch (mode) {
       case 'light':
         {
           theme = lightTheme;
           baseColor = lightBaseColor;
           nonIntColor = Color.fromARGB(255, 219, 219, 249);
+
+          await MapData.storeThemeData('light');
+
           break;
         }
       case 'dark':
@@ -103,6 +112,9 @@ class ThemeModel extends ChangeNotifier {
           theme = darkTheme;
           baseColor = darkBaseColor;
           nonIntColor = Color.fromARGB(255, 55, 55, 70);
+
+          await MapData.storeThemeData('dark');
+
           break;
         }
     }
