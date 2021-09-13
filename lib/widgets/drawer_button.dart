@@ -30,7 +30,11 @@ class CustomDrawerButton extends StatelessWidget {
               Spacer(flex: 1),
               Flexible(
                 flex: 10,
-                child: Text(text),
+                child: Text(
+                  text,
+                  style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.height / 47),
+                ),
               ),
             ],
           ),

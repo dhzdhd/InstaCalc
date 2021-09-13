@@ -12,7 +12,7 @@ class _FieldContainerState extends State<FieldContainer> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 20, right: 20),
+      padding: EdgeInsets.only(left: 10, right: 10),
       child: Neumorphic(
         style: NeumorphicStyle(
           shape: NeumorphicShape.concave,

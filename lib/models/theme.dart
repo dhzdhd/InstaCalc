@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
+final lightBaseColor = Color.fromARGB(255, 235, 235, 255);
 final lightTextColor = Color.fromARGB(255, 77, 77, 123);
 final lightTextStyle = TextStyle(color: lightTextColor, fontFamily: 'Cairo');
 final lightTheme = NeumorphicThemeData(
@@ -40,6 +41,7 @@ final lightTheme = NeumorphicThemeData(
   iconTheme: IconThemeData(color: lightTextColor),
 );
 
+final darkBaseColor = Color.fromARGB(255, 46, 46, 61);
 final darkTextColor = Color.fromARGB(255, 255, 230, 230);
 final darkTextStyle = TextStyle(color: darkTextColor, fontFamily: 'Cairo');
 final darkTheme = NeumorphicThemeData(
@@ -82,20 +84,24 @@ final darkTheme = NeumorphicThemeData(
 );
 
 class ThemeModel extends ChangeNotifier {
+  final equalColor = Color.fromARGB(255, 81, 81, 130);
+  Color baseColor = lightBaseColor;
+  Color nonIntColor = Color.fromARGB(255, 219, 219, 249);
   var theme = lightTheme;
-  static Color nonIntColor = Color.fromARGB(255, 219, 219, 249);
 
   void changeTheme(String mode) {
     switch (mode) {
       case 'light':
         {
           theme = lightTheme;
+          baseColor = lightBaseColor;
           nonIntColor = Color.fromARGB(255, 219, 219, 249);
           break;
         }
       case 'dark':
         {
           theme = darkTheme;
+          baseColor = darkBaseColor;
           nonIntColor = Color.fromARGB(255, 55, 55, 70);
           break;
         }
