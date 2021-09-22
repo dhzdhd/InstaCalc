@@ -32,25 +32,25 @@ class ButtonList {
     {'text': 'tan', 'value': 'tan(', 'color': 'int', 'func': 'calc'},
     {'text': 'x', 'value': 'x', 'color': 'nonint', 'func': 'calc'},
     {
-      'text': 'asin',
+      'text': 'arcsin',
       'value': 'asin(',
       'color': 'int',
       'func': 'calc',
-      'font': 30.0
+      'font': 20.0
     },
     {
-      'text': 'acos',
+      'text': 'arccos',
       'value': 'acos(',
       'color': 'int',
       'func': 'calc',
-      'font': 30.0
+      'font': 18.0
     },
     {
-      'text': 'atan',
+      'text': 'arctan',
       'value': 'atan(',
       'color': 'int',
       'func': 'calc',
-      'font': 30.0
+      'font': 20.0
     },
     {'text': '-', 'value': '-', 'color': 'nonint', 'func': 'calc'},
     {'text': 'log', 'value': 'log10(', 'color': 'int', 'func': 'calc'},
@@ -58,6 +58,25 @@ class ButtonList {
     {'text': 'e', 'value': 'e^', 'color': 'int', 'func': 'calc'},
     {'text': '+', 'value': '+', 'color': 'nonint', 'func': 'calc'},
     {'text': '^', 'value': '^', 'color': 'nonint', 'func': 'calc'},
+    {'text': '0', 'value': '0', 'color': 'int', 'func': 'calc'},
+    {'text': '.', 'value': '.', 'color': 'nonint', 'func': 'calc'},
+    {'text': '=', 'value': '=', 'color': 'equal', 'func': 'equate'},
+  ];
+
+  static List<Map<String, String>> percentageButtonList = [
+    {'text': '7', 'value': '7', 'color': 'int', 'func': 'calc'},
+    {'text': '8', 'value': '8', 'color': 'int', 'func': 'calc'},
+    {'text': '9', 'value': '9', 'color': 'int', 'func': 'calc'},
+    {'text': 'C', 'value': 'C', 'color': 'nonint', 'func': 'clear'},
+    {'text': '4', 'value': '4', 'color': 'int', 'func': 'calc'},
+    {'text': '5', 'value': '5', 'color': 'int', 'func': 'calc'},
+    {'text': '6', 'value': '6', 'color': 'int', 'func': 'calc'},
+    {'text': '-', 'value': '-', 'color': 'nonint', 'func': 'negate'},
+    {'text': '1', 'value': '1', 'color': 'int', 'func': 'calc'},
+    {'text': '2', 'value': '2', 'color': 'int', 'func': 'calc'},
+    {'text': '3', 'value': '3', 'color': 'int', 'func': 'calc'},
+    {'text': '+', 'value': '+', 'color': 'nonint', 'func': 'modulus'},
+    {'text': '00', 'value': '00', 'color': 'int', 'func': 'calc'},
     {'text': '0', 'value': '0', 'color': 'int', 'func': 'calc'},
     {'text': '.', 'value': '.', 'color': 'nonint', 'func': 'calc'},
     {'text': '=', 'value': '=', 'color': 'equal', 'func': 'equate'},

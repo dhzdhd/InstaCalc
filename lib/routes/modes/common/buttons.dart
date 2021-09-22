@@ -8,18 +8,23 @@ import 'package:provider/provider.dart';
 class SimpleButtonContainer extends StatelessWidget {
   final aspectRatio;
   final buttonList;
+  final itemCount;
   late final items;
 
-  SimpleButtonContainer({required this.aspectRatio, required this.buttonList}) {
-    items = List<CalcButton>.generate(20, (index) {
-      final item = buttonList[index];
-      return CalcButton(
-        item['text'] as String,
-        item['value'] as String,
-        item['color'] as String,
-        item['func'] as String,
-      );
-    });
+  SimpleButtonContainer({
+    required this.aspectRatio,
+    required this.buttonList,
+    this.itemCount,
+  }) {
+    // items = List<CalcButton>.generate(20, (index) {
+    //   final item = buttonList[index];
+    //   return CalcButton(
+    //     item['text'] as String,
+    //     item['value'] as String,
+    //     item['color'] as String,
+    //     item['func'] as String,
+    //   );
+    // });
   }
 
   @override
@@ -34,14 +39,15 @@ class SimpleButtonContainer extends StatelessWidget {
             mainAxisSpacing: 10,
             crossAxisSpacing: 10,
           ),
-          itemCount: 20,
+          itemCount: itemCount ?? 20,
           padding: EdgeInsets.all(10),
           itemBuilder: (context, index) {
             return CustomButton(
-                text: items[index].text,
-                value: items[index].value,
-                color: items[index].color,
-                onPressed: items[index].buildFunc());
+                text: buttonList[index]['text'],
+                value: buttonList[index]['value'],
+                color: buttonList[index]['color'],
+                onPressed: buttonList[index]['func'],
+                fontSize: buttonList[index]['font']);
           },
         );
       }),

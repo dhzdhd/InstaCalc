@@ -3,6 +3,7 @@ import 'package:insta_calculator/models/theme.dart';
 import 'package:insta_calculator/routes/modes/common/button_list.dart';
 import 'package:insta_calculator/routes/modes/common/buttons.dart';
 import 'package:insta_calculator/routes/modes/common/fields.dart';
+import 'package:insta_calculator/routes/modes/percentage/percentage_fields.dart';
 import 'package:provider/provider.dart';
 
 class PercentageContentContainer extends StatelessWidget {
@@ -16,16 +17,17 @@ class PercentageContentContainer extends StatelessWidget {
               flex: 5,
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
-                child: FieldContainer(),
+                child: PercentageFieldContainer(),
               ),
             ),
             Flexible(
-              flex: 15,
+              flex: 8,
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child: SimpleButtonContainer(
                   aspectRatio: MediaQuery.of(context).size.aspectRatio * 2,
-                  buttonList: ButtonList.simpleButtonList,
+                  buttonList: ButtonList.percentageButtonList,
+                  itemCount: 16,
                 ),
               ),
             ),
