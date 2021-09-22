@@ -8,10 +8,10 @@ class DatabaseController {
   static Future<void> init() async {
     sqfliteFfiInit();
     databaseFactory = databaseFactoryFfi;
-    db = await databaseFactory.openDatabase('history.db');
+    db = await databaseFactory.openDatabase('databases/history.db');
 
     await db.execute('''
-    CREATE TABLE history (
+    CREATE IF NOT EXISTS TABLE history (
       expr TEXT
       value TEXT
       date DATE

@@ -45,18 +45,19 @@ class ScientificContentContainer extends StatelessWidget {
                     Flexible(
                       flex: 1,
                       child: Padding(
-                          padding: EdgeInsets.only(right: 10, left: 10, top: 5),
-                          child: Neumorphic(
-                            style:
-                                NeumorphicStyle(color: ThemeModel().equalColor),
-                            child: Align(
-                              alignment: Alignment.topCenter,
-                              child: Icon(
-                                Icons.keyboard_arrow_down,
-                                color: Colors.white,
-                              ),
+                        padding: EdgeInsets.only(right: 10, left: 10, top: 5),
+                        child: Neumorphic(
+                          style:
+                              NeumorphicStyle(color: ThemeModel().equalColor),
+                          child: Align(
+                            alignment: Alignment.topCenter,
+                            child: Icon(
+                              Icons.keyboard_arrow_down,
+                              color: Colors.white,
                             ),
-                          )),
+                          ),
+                        ),
+                      ),
                     ),
                     Flexible(
                       flex: 19,

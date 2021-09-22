@@ -17,7 +17,7 @@ class CalculateModel extends ChangeNotifier {
     try {
       Expression exp = p.parse(expr);
       eval = exp.evaluate(EvaluationType.REAL, cm);
-    } on RangeError catch (_) {
+    } catch (_) {
       return 'Invalid expression';
     }
 
@@ -29,10 +29,10 @@ class CalculateModel extends ChangeNotifier {
             : answer;
   }
 
-  void calculate(String char) {
+  void add(String char) {
     bottomText += char;
 
-    if (char.contains(RegExp('[0-9]'))) {
+    if (char.contains(RegExp('[0-9()]'))) {
       final answer = evaluate(bottomText);
       topText = answer;
     }

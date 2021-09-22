@@ -1,6 +1,6 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:insta_calculator/models/modes.dart';
-import 'package:insta_calculator/widgets/drawer.dart';
+import 'package:insta_calculator/routes/drawer.dart';
 import 'package:provider/provider.dart';
 
 class HomeRoute extends StatelessWidget {

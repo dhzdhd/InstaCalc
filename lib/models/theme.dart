@@ -39,7 +39,7 @@ final lightTheme = NeumorphicThemeData(
     depth: 5,
     lightSource: LightSource.topRight,
   ),
-  iconTheme: IconThemeData(color: lightTextColor),
+  iconTheme: IconThemeData(color: lightTextColor, size: 25),
 );
 
 final darkBaseColor = Color.fromARGB(255, 46, 46, 61);
@@ -81,7 +81,7 @@ final darkTheme = NeumorphicThemeData(
     depth: 5,
     lightSource: LightSource.topRight,
   ),
-  iconTheme: IconThemeData(color: darkTextColor),
+  iconTheme: IconThemeData(color: darkTextColor, size: 25),
 );
 
 class ThemeModel extends ChangeNotifier {

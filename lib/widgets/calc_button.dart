@@ -35,11 +35,12 @@ class CustomButton extends StatelessWidget {
   final color;
   final onPressed;
 
-  CustomButton(
-      {required this.text,
-      required this.value,
-      required this.color,
-      required this.onPressed});
+  CustomButton({
+    required this.text,
+    required this.value,
+    required this.color,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +83,7 @@ class CustomButton extends StatelessWidget {
                     case 'calc':
                       {
                         Provider.of<CalculateModel>(context, listen: false)
-                            .calculate(value);
+                            .add(value);
                         break;
                       }
                     case 'equate':
