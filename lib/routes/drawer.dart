@@ -56,7 +56,7 @@ class DrawerFields extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       child: Container(
-        child: Column(
+        child: ListView(
           children: [
             Padding(
               padding: EdgeInsets.only(bottom: 3),
@@ -150,6 +150,7 @@ class DrawerFields extends StatelessWidget {
                 },
               ),
             ),
+            Divider(),
             Spacer(),
             Padding(
                 padding: EdgeInsets.only(bottom: 3),

@@ -22,7 +22,7 @@ class ButtonList {
     {'text': '=', 'value': '=', 'color': 'equal', 'func': 'equate'},
   ];
 
-  static List<Map<String, String>> scientificButtonList = [
+  static List<Map<String, Object>> scientificButtonList = [
     {'text': 'C', 'value': 'C', 'color': 'nonint', 'func': 'clear'},
     {'text': '(', 'value': '(', 'color': 'nonint', 'func': 'calc'},
     {'text': ')', 'value': ')', 'color': 'nonint', 'func': 'calc'},
@@ -36,21 +36,21 @@ class ButtonList {
       'value': 'asin(',
       'color': 'int',
       'func': 'calc',
-      'font': '30.0'
+      'font': 30.0
     },
     {
       'text': 'acos',
       'value': 'acos(',
       'color': 'int',
       'func': 'calc',
-      'font': '30.0'
+      'font': 30.0
     },
     {
       'text': 'atan',
       'value': 'atan(',
       'color': 'int',
       'func': 'calc',
-      'font': '30.0'
+      'font': 30.0
     },
     {'text': '-', 'value': '-', 'color': 'nonint', 'func': 'calc'},
     {'text': 'log', 'value': 'log10(', 'color': 'int', 'func': 'calc'},

@@ -20,7 +20,7 @@ class ScientificContentContainer extends StatelessWidget {
             ),
           ),
           Flexible(
-            flex: 15,
+            flex: 16,
             child: SlidingUpPanel(
               color: Colors.white,
               borderRadius: BorderRadius.circular(15),

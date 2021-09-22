@@ -24,8 +24,8 @@ class _FieldContainerState extends State<FieldContainer> {
         child: Consumer<CalculateModel>(builder: (context, model, child) {
           return Column(
             children: [
-              Flexible(
-                flex: 2,
+              Expanded(
+                flex: 3,
                 child: Align(
                   alignment: Alignment.centerRight,
                   child: Padding(
@@ -33,13 +33,13 @@ class _FieldContainerState extends State<FieldContainer> {
                     child: Text(
                       CalculateModel.topText,
                       style:
-                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
               ),
-              Flexible(
-                flex: 5,
+              Expanded(
+                flex: 7,
                 child: Align(
                   alignment: Alignment.centerRight,
                   child: Padding(
@@ -51,7 +51,7 @@ class _FieldContainerState extends State<FieldContainer> {
                         Text(
                           CalculateModel.bottomText,
                           style: TextStyle(
-                              fontSize: 70, fontWeight: FontWeight.bold),
+                              fontSize: 65, fontWeight: FontWeight.bold),
                         )
                       ],
                     ),

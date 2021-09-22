@@ -19,7 +19,7 @@ class SimpleContentContainer extends StatelessWidget {
               ),
             ),
             Flexible(
-              flex: 15,
+              flex: 16,
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child: SimpleButtonContainer(
