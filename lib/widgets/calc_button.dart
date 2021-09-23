@@ -11,12 +11,13 @@ class CalcButton extends StatelessWidget {
   final onPressed;
   final fontSize;
 
-  CalcButton(
-      {required this.text,
-      required this.value,
-      required this.color,
-      required this.onPressed,
-      this.fontSize});
+  CalcButton({
+    required this.text,
+    required this.value,
+    required this.color,
+    required this.onPressed,
+    this.fontSize,
+  });
 
   @override
   Widget build(BuildContext context) {

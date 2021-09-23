@@ -17,6 +17,8 @@ Currently planned to support all platforms including Android, iOS, macOS, Window
 
 ## Preview
 
+(Sorry for the huge screenshots)
+
 ### Home
 
 ![Home](assets/images/readme/home.png)
