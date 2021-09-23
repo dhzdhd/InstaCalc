@@ -36,7 +36,7 @@ class PercentageFieldContainer extends StatelessWidget {
       child: Column(
         children: [
           Flexible(
-            flex: 2,
+            flex: 3,
             child: Row(
               children: [
                 Flexible(
@@ -55,15 +55,18 @@ class PercentageFieldContainer extends StatelessWidget {
             ),
           ),
           Flexible(
-            flex: 1,
+            flex: 10,
             child: Neumorphic(
-              child: Text(''),
+              child: Text(
+                '8758',
+                style: TextStyle(fontSize: 30),
+              ),
             ),
           ),
           Flexible(
             flex: 2,
             child: Neumorphic(
-              child: Text(''),
+              child: Text('969'),
             ),
           ),
         ],

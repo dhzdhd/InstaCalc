@@ -13,14 +13,14 @@ class ScientificContentContainer extends StatelessWidget {
       child: Column(
         children: [
           Flexible(
-            flex: 5,
+            flex: 10,
             child: SizedBox(
               width: MediaQuery.of(context).size.width,
               child: FieldContainer(),
             ),
           ),
-          Flexible(
-            flex: 16,
+          Expanded(
+            flex: 31,
             child: SlidingUpPanel(
               color: Colors.white,
               borderRadius: BorderRadius.circular(15),

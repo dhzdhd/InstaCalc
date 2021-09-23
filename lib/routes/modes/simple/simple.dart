@@ -12,14 +12,14 @@ class SimpleContentContainer extends StatelessWidget {
         child: Column(
           children: [
             Flexible(
-              flex: 5,
+              flex: 10,
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child: FieldContainer(),
               ),
             ),
             Flexible(
-              flex: 16,
+              flex: 31,
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child: SimpleButtonContainer(
