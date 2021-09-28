@@ -11,4 +11,8 @@ class HistoryModel extends ChangeNotifier {
     historyItemList.clear();
     notifyListeners();
   }
+
+  void fetch() {}
+
+  void add() {}
 }

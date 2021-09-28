@@ -18,7 +18,7 @@ class SimpleContentContainer extends StatelessWidget {
                 child: FieldContainer(),
               ),
             ),
-            Flexible(
+            Expanded(
               flex: 31,
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,

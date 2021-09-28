@@ -41,7 +41,7 @@ class CalcButton extends StatelessWidget {
                   color: color == 'int'
                       ? model.baseColor
                       : color == 'nonint'
-                          ? model.nonIntColor
+                          ? model.secondaryColor
                           : model.equalColor,
                   boxShape:
                       NeumorphicBoxShape.roundRect(BorderRadius.circular(30)),

@@ -1,24 +1,15 @@
-import 'package:sqflite_common_ffi/sqflite_ffi.dart';
-import 'package:sqflite_common/sqlite_api.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class DatabaseController {
-  static late DatabaseFactory databaseFactory;
-  static late Database db;
+  static late final SharedPreferences prefs;
 
   static Future<void> init() async {
-    sqfliteFfiInit();
-    databaseFactory = databaseFactoryFfi;
-    db = await databaseFactory.openDatabase('databases/history.db');
-
-    await db.execute('''
-    CREATE IF NOT EXISTS TABLE history (
-      expr TEXT
-      value TEXT
-      date DATE
-    )''');
+    prefs = await SharedPreferences.getInstance();
   }
 
-  static Future<void> insert() async {
-    await db.insert('history', <String, Object?>{});
+  static Future<void> view() async {}
+
+  static Future<void> insert(String expr, String value, DateTime date) async {
+    prefs.setStringList('${date.toString()}', []);
   }
 }

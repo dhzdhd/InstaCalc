@@ -89,7 +89,7 @@ class ThemeModel extends ChangeNotifier {
 
   final equalColor = Color.fromARGB(255, 81, 81, 130);
   Color baseColor = themeValue == 'light' ? lightBaseColor : darkBaseColor;
-  Color nonIntColor = themeValue == 'light'
+  Color secondaryColor = themeValue == 'light'
       ? Color.fromARGB(255, 219, 219, 249)
       : Color.fromARGB(255, 55, 55, 70);
 
@@ -101,7 +101,7 @@ class ThemeModel extends ChangeNotifier {
         {
           theme = lightTheme;
           baseColor = lightBaseColor;
-          nonIntColor = Color.fromARGB(255, 219, 219, 249);
+          secondaryColor = Color.fromARGB(255, 219, 219, 249);
 
           await MapData.storeData(key: 'theme', value: 'light');
 
@@ -111,7 +111,7 @@ class ThemeModel extends ChangeNotifier {
         {
           theme = darkTheme;
           baseColor = darkBaseColor;
-          nonIntColor = Color.fromARGB(255, 55, 55, 70);
+          secondaryColor = Color.fromARGB(255, 55, 55, 70);
 
           await MapData.storeData(key: 'theme', value: 'dark');
 

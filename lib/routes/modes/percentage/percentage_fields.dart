@@ -22,7 +22,7 @@ class PercentageField extends StatelessWidget {
               borderSide: BorderSide(color: Colors.red),
             ),
             hintText: placeholder,
-            hintStyle: TextStyle(color: Colors.white, fontSize: 30),
+            hintStyle: TextStyle(fontSize: 30),
           ),
         ),
       ),
@@ -54,19 +54,37 @@ class PercentageFieldContainer extends StatelessWidget {
               ],
             ),
           ),
+          Spacer(),
           Flexible(
             flex: 10,
-            child: Neumorphic(
-              child: Text(
-                '8758',
-                style: TextStyle(fontSize: 30),
+            child: Padding(
+              padding: EdgeInsets.only(left: 5, right: 5),
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: Neumorphic(
+                  style: NeumorphicStyle(depth: -5),
+                  child: Column(
+                    children: [
+                      Flexible(
+                        flex: 3,
+                        child: Text(
+                          '352',
+                          textAlign: TextAlign.right,
+                          style: TextStyle(fontSize: 50),
+                        ),
+                      ),
+                      Flexible(
+                        flex: 1,
+                        child: Text(
+                          '35223523',
+                          textAlign: TextAlign.right,
+                          style: TextStyle(fontSize: 30),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
-            ),
-          ),
-          Flexible(
-            flex: 2,
-            child: Neumorphic(
-              child: Text('969'),
             ),
           ),
         ],

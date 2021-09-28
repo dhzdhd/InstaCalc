@@ -54,128 +54,126 @@ class CustomDrawer extends StatelessWidget {
 class DrawerFields extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: Container(
-        child: ListView(
-          children: [
-            Padding(
+    return Container(
+      child: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.only(bottom: 3),
+            child: CustomDrawerButton(
+              text: 'Simple',
+              icon: Icons.calculate,
+              func: () {
+                Navigator.of(context).pop();
+                Provider.of<CalculateModel>(context, listen: false)
+                    .clear(all: true);
+                Provider.of<ModeModel>(context, listen: false)
+                    .changeMode('simple');
+              },
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(bottom: 3),
+            child: CustomDrawerButton(
+              text: 'Scientific',
+              icon: Icons.science,
+              func: () {
+                Navigator.of(context).pop();
+                Provider.of<CalculateModel>(context, listen: false)
+                    .clear(all: true);
+                Provider.of<ModeModel>(context, listen: false)
+                    .changeMode('scientific');
+              },
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(bottom: 3),
+            child: CustomDrawerButton(
+              text: 'Percentage',
+              icon: FontAwesomeIcons.percentage,
+              func: () {
+                Navigator.of(context).pop();
+                Provider.of<CalculateModel>(context, listen: false)
+                    .clear(all: true);
+                Provider.of<ModeModel>(context, listen: false)
+                    .changeMode('percentage');
+              },
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(bottom: 3),
+            child: CustomDrawerButton(
+              text: 'Number system',
+              icon: FontAwesomeIcons.sortNumericUp,
+              func: () {
+                Navigator.of(context).pop();
+                Provider.of<CalculateModel>(context, listen: false)
+                    .clear(all: true);
+                Provider.of<ModeModel>(context, listen: false)
+                    .changeMode('number');
+              },
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(bottom: 3),
+            child: CustomDrawerButton(
+              text: 'Currency',
+              icon: Icons.monetization_on,
+              func: () {
+                Navigator.of(context).pop();
+                Provider.of<ModeModel>(context, listen: false)
+                    .changeMode('currency');
+              },
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(bottom: 5),
+            child: CustomDrawerButton(
+              text: 'Units',
+              icon: Icons.format_list_numbered,
+              func: () {
+                Navigator.of(context).pop();
+                Provider.of<ModeModel>(context, listen: false)
+                    .changeMode('units');
+              },
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(bottom: 5),
+            child: CustomDrawerButton(
+              text: 'Significant Digit',
+              icon: FontAwesomeIcons.creativeCommonsZero,
+              func: () {
+                Navigator.of(context).pop();
+                Provider.of<ModeModel>(context, listen: false)
+                    .changeMode('sigdigit');
+              },
+            ),
+          ),
+          Divider(),
+          Spacer(),
+          Padding(
               padding: EdgeInsets.only(bottom: 3),
               child: CustomDrawerButton(
-                text: 'Simple',
-                icon: Icons.calculate,
+                text: 'Help',
+                icon: Icons.help,
                 func: () {
                   Navigator.of(context).pop();
-                  Provider.of<CalculateModel>(context, listen: false)
-                      .clear(all: true);
-                  Provider.of<ModeModel>(context, listen: false)
-                      .changeMode('simple');
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return HelpDialog();
+                      });
                 },
-              ),
+              )),
+          Padding(
+            padding: EdgeInsets.only(bottom: 15),
+            child: CustomDrawerButton(
+              text: 'Settings',
+              icon: Icons.settings,
+              func: () => Navigator.of(context).popAndPushNamed('/settings'),
             ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 3),
-              child: CustomDrawerButton(
-                text: 'Scientific',
-                icon: Icons.science,
-                func: () {
-                  Navigator.of(context).pop();
-                  Provider.of<CalculateModel>(context, listen: false)
-                      .clear(all: true);
-                  Provider.of<ModeModel>(context, listen: false)
-                      .changeMode('scientific');
-                },
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 3),
-              child: CustomDrawerButton(
-                text: 'Percentage',
-                icon: FontAwesomeIcons.percentage,
-                func: () {
-                  Navigator.of(context).pop();
-                  Provider.of<CalculateModel>(context, listen: false)
-                      .clear(all: true);
-                  Provider.of<ModeModel>(context, listen: false)
-                      .changeMode('percentage');
-                },
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 3),
-              child: CustomDrawerButton(
-                text: 'Number system',
-                icon: FontAwesomeIcons.sortNumericUp,
-                func: () {
-                  Navigator.of(context).pop();
-                  Provider.of<CalculateModel>(context, listen: false)
-                      .clear(all: true);
-                  Provider.of<ModeModel>(context, listen: false)
-                      .changeMode('number');
-                },
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 3),
-              child: CustomDrawerButton(
-                text: 'Currency',
-                icon: Icons.monetization_on,
-                func: () {
-                  Navigator.of(context).pop();
-                  Provider.of<ModeModel>(context, listen: false)
-                      .changeMode('currency');
-                },
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 5),
-              child: CustomDrawerButton(
-                text: 'Units',
-                icon: Icons.format_list_numbered,
-                func: () {
-                  Navigator.of(context).pop();
-                  Provider.of<ModeModel>(context, listen: false)
-                      .changeMode('units');
-                },
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 5),
-              child: CustomDrawerButton(
-                text: 'Significant Digit',
-                icon: FontAwesomeIcons.creativeCommonsZero,
-                func: () {
-                  Navigator.of(context).pop();
-                  Provider.of<ModeModel>(context, listen: false)
-                      .changeMode('sigdigit');
-                },
-              ),
-            ),
-            Divider(),
-            Spacer(),
-            Padding(
-                padding: EdgeInsets.only(bottom: 3),
-                child: CustomDrawerButton(
-                  text: 'Help',
-                  icon: Icons.help,
-                  func: () {
-                    Navigator.of(context).pop();
-                    showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return HelpDialog();
-                        });
-                  },
-                )),
-            Padding(
-              padding: EdgeInsets.only(bottom: 15),
-              child: CustomDrawerButton(
-                text: 'Settings',
-                icon: Icons.settings,
-                func: () => Navigator.of(context).popAndPushNamed('/settings'),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
