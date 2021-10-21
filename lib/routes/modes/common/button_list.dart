@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 class ButtonList {
   static List<Map<String, String>> simpleButtonList = [
     {'text': 'C', 'value': 'C', 'color': 'nonint', 'func': 'clear'},
@@ -32,21 +34,21 @@ class ButtonList {
     {'text': 'tan', 'value': 'tan(', 'color': 'int', 'func': 'calc'},
     {'text': 'x', 'value': 'x', 'color': 'nonint', 'func': 'calc'},
     {
-      'text': 'arcsin',
+      'text': 'asin',
       'value': 'asin(',
       'color': 'int',
       'func': 'calc',
       'font': 20.0
     },
     {
-      'text': 'arccos',
+      'text': 'acos',
       'value': 'acos(',
       'color': 'int',
       'func': 'calc',
       'font': 18.0
     },
     {
-      'text': 'arctan',
+      'text': 'atan',
       'value': 'atan(',
       'color': 'int',
       'func': 'calc',

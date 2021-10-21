@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class HistoryTile extends StatefulWidget {
@@ -13,13 +15,17 @@ class HistoryTile extends StatefulWidget {
 class _HistoryTileState extends State<HistoryTile>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
+  late final Animation<double> _animation;
 
   @override
   void initState() {
     super.initState();
     _controller =
-        AnimationController(vsync: this, duration: Duration(seconds: 1));
-    _controller.forward();
+        AnimationController(vsync: this, duration: Duration(milliseconds: 500));
+    _animation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.fastOutSlowIn,
+    );
   }
 
   @override
@@ -30,33 +36,56 @@ class _HistoryTileState extends State<HistoryTile>
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return GestureDetector(
       child: Padding(
         padding: EdgeInsets.all(5),
         child: Neumorphic(
           style: NeumorphicStyle(depth: 10),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(widget.date, style: TextStyle(fontSize: 30)),
-                    ),
+          child: Column(children: [
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 10),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(widget.date, style: TextStyle(fontSize: 25)),
                   ),
-                  Spacer(),
-                  Padding(
-                    padding: EdgeInsets.only(right: 10),
-                    child: Icon(Icons.keyboard_arrow_right),
-                  )
-                ],
+                ),
+                Spacer(),
+                Padding(
+                  padding: EdgeInsets.only(right: 10),
+                  child: AnimatedBuilder(
+                    animation: _controller,
+                    child: const Icon(Icons.keyboard_arrow_right),
+                    builder: (_, child) {
+                      return Transform.rotate(
+                        origin: Offset(5, -3),
+                        angle: _animation.value * pi / 2,
+                        child: child,
+                      );
+                    },
+                  ),
+                )
+              ],
+            ),
+            SizeTransition(
+              sizeFactor: _animation,
+              child: Container(
+                child: Column(
+                  children: []..addAll(widget.children),
+                ),
               ),
-            ]..addAll(widget.children),
-          ),
+            )
+          ]),
         ),
       ),
+      onTap: () {
+        setState(() {
+          _controller.isDismissed
+              ? _controller.forward()
+              : _controller.reverse();
+        });
+      },
     );
   }
 }

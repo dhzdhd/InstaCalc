@@ -19,8 +19,9 @@ class SettingsRoute extends StatelessWidget {
                 depth: -5,
               ),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  ThemeSettingTile(),
+                  Flexible(child: ThemeSettingTile()),
                 ],
               ),
             ),

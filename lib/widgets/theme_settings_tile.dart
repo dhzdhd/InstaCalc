@@ -15,14 +15,28 @@ class ThemeSettingTile extends StatefulWidget {
 class _ThemeSettingTileState extends State<ThemeSettingTile>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
+  late final Animation<double> _animation;
   Theme? groupValue;
   double height = 80;
-  bool visible = false;
+  bool expand = false;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this);
+    _controller =
+        AnimationController(duration: Duration(milliseconds: 500), vsync: this);
+    _animation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.fastOutSlowIn,
+    );
+  }
+
+  void _runExpandCheck() {
+    if (_controller.isDismissed) {
+      _controller.forward();
+    } else {
+      _controller.reverse();
+    }
   }
 
   @override
@@ -31,34 +45,16 @@ class _ThemeSettingTileState extends State<ThemeSettingTile>
     super.dispose();
   }
 
-  void expand() {
-    setState(() {
-      if (height == 150) {
-        height = 80;
-        visible = false;
-      } else {
-        height = 150;
-        visible = true;
-      }
-    });
-  }
-
-  double setAngle() {
-    double angle = height == 150 ? 0.5 * pi : 0;
-    return angle;
-  }
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: height,
+      height: 150,
       child: Padding(
         padding: EdgeInsets.only(left: 10, right: 10, top: 10),
         child: NeumorphicButton(
           child: Column(
             children: [
               Expanded(
-                flex: 1,
                 child: Row(
                   children: [
                     Flexible(flex: 1, child: Icon(Icons.palette)),
@@ -79,7 +75,7 @@ class _ThemeSettingTileState extends State<ThemeSettingTile>
                         builder: (_, child) {
                           return Transform.rotate(
                             origin: Offset(5, -3),
-                            angle: setAngle(),
+                            angle: _animation.value * pi / 2,
                             child: child,
                           );
                         },
@@ -88,8 +84,9 @@ class _ThemeSettingTileState extends State<ThemeSettingTile>
                   ],
                 ),
               ),
-              Visibility(
-                visible: visible,
+              SizeTransition(
+                sizeFactor: _animation,
+                axisAlignment: 1,
                 child: Padding(
                   padding: EdgeInsets.only(top: 10, bottom: 10),
                   child: Row(
@@ -143,7 +140,13 @@ class _ThemeSettingTileState extends State<ThemeSettingTile>
               ),
             ],
           ),
-          onPressed: () => expand(),
+          onPressed: () {
+            setState(() {
+              _controller.isDismissed
+                  ? _controller.forward()
+                  : _controller.reverse();
+            });
+          },
         ),
       ),
     );

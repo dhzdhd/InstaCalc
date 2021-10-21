@@ -41,24 +41,11 @@ class HistoryBody extends StatelessWidget {
                       heading: 'Simple', expr: '1234x1', result: '1234'),
                   HistoryContentTile(
                       heading: 'Simple', expr: '1234x1', result: '1234'),
-                  HistoryContentTile(
-                      heading: 'Simple', expr: '1234x1', result: '1234'),
-                  HistoryContentTile(
-                      heading: 'Simple', expr: '1234x1', result: '1234'),
-                  HistoryContentTile(
-                      heading: 'Simple', expr: '1234x1', result: '1234'),
                 ],
               ),
-              Divider(),
               HistoryTile(
                 date: '25/9/2021',
                 children: [
-                  HistoryContentTile(
-                      heading: 'Simple', expr: '1234x1', result: '1234'),
-                  HistoryContentTile(
-                      heading: 'Simple', expr: '1234x1', result: '1234'),
-                  HistoryContentTile(
-                      heading: 'Simple', expr: '1234x1', result: '1234'),
                   HistoryContentTile(
                       heading: 'Simple', expr: '1234x1', result: '1234'),
                   HistoryContentTile(
