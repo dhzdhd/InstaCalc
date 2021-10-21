@@ -36,56 +36,60 @@ class _HistoryTileState extends State<HistoryTile>
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      child: Padding(
-        padding: EdgeInsets.all(5),
-        child: Neumorphic(
-          style: NeumorphicStyle(depth: 10),
-          child: Column(children: [
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(left: 10),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(widget.date, style: TextStyle(fontSize: 25)),
+    return Padding(
+      padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
+      child: NeumorphicButton(
+        padding: EdgeInsets.zero,
+        style: NeumorphicStyle(depth: 2),
+        child: Padding(
+          padding: EdgeInsets.all(0),
+          child: Neumorphic(
+            style: NeumorphicStyle(depth: 5),
+            child: Column(children: [
+              Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(widget.date, style: TextStyle(fontSize: 25)),
+                    ),
                   ),
-                ),
-                Spacer(),
-                Padding(
-                  padding: EdgeInsets.only(right: 10),
-                  child: AnimatedBuilder(
-                    animation: _controller,
-                    child: const Icon(Icons.keyboard_arrow_right),
-                    builder: (_, child) {
-                      return Transform.rotate(
-                        origin: Offset(5, -3),
-                        angle: _animation.value * pi / 2,
-                        child: child,
-                      );
-                    },
-                  ),
-                )
-              ],
-            ),
-            SizeTransition(
-              sizeFactor: _animation,
-              child: Container(
-                child: Column(
-                  children: []..addAll(widget.children),
-                ),
+                  Spacer(),
+                  Padding(
+                    padding: EdgeInsets.only(right: 10),
+                    child: AnimatedBuilder(
+                      animation: _controller,
+                      child: const Icon(Icons.keyboard_arrow_right),
+                      builder: (_, child) {
+                        return Transform.rotate(
+                          angle: _animation.value * pi / 2,
+                          child: child,
+                        );
+                      },
+                    ),
+                  )
+                ],
               ),
-            )
-          ]),
+              SizeTransition(
+                sizeFactor: _animation,
+                child: Container(
+                  child: Column(
+                    children: widget.children,
+                  ),
+                ),
+              )
+            ]),
+          ),
         ),
+        onPressed: () {
+          setState(() {
+            _controller.isDismissed
+                ? _controller.forward()
+                : _controller.reverse();
+          });
+        },
       ),
-      onTap: () {
-        setState(() {
-          _controller.isDismissed
-              ? _controller.forward()
-              : _controller.reverse();
-        });
-      },
     );
   }
 }

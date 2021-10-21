@@ -1,11 +1,7 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class HistoryModel extends ChangeNotifier {
   static var historyItemList = [];
-
-  HistoryModel() {
-    historyItemList.addAll([]); // Storage stuff here
-  }
 
   void clear() {
     historyItemList.clear();
@@ -14,5 +10,6 @@ class HistoryModel extends ChangeNotifier {
 
   void fetch() {}
 
-  void add() {}
+  void store(
+      {required String expr, required String result, required String type}) {}
 }
