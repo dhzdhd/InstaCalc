@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:math_expressions/math_expressions.dart';
+import 'package:provider/provider.dart';
 
 class CalculateModel extends ChangeNotifier {
   static var topText = '';
@@ -61,15 +62,19 @@ class CalculateModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void equate() {
+  List? equate() {
+    var result = [bottomText, topText];
+
     final answer = evaluate(bottomText);
 
     if (answer == 'Invalid expression' || answer == 'Infinity') {
-      return;
+      return null;
     }
     bottomText = answer;
     topText = '';
 
     notifyListeners();
+
+    return result;
   }
 }

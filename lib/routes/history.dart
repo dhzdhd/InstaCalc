@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:insta_calculator/models/history.dart';
 import 'package:insta_calculator/widgets/history_tiles.dart';
+import 'package:provider/provider.dart';
 
 class HistoryRoute extends StatelessWidget {
   @override
@@ -12,6 +14,15 @@ class HistoryRoute extends StatelessWidget {
         appBar: NeumorphicAppBar(
           leading: NeumorphicBackButton(),
           title: Text('History'),
+          actions: [
+            NeumorphicButton(
+              style: NeumorphicStyle(depth: 5),
+              child: Icon(Icons.delete_outline),
+              onPressed: () async {
+                Provider.of<HistoryModel>(context, listen: false).clear();
+              },
+            )
+          ],
         ),
         body: HistoryBody(),
       ),
@@ -29,33 +40,30 @@ class HistoryBody extends StatelessWidget {
           style: NeumorphicStyle(
             depth: -5,
           ),
-          child: ListView(
-            reverse: true,
-            children: [
-              HistoryTile(
-                date: '24/9/2021',
-                children: [
-                  HistoryContentTile(
-                      heading: 'Simple', expr: '1234x1', result: '1234'),
-                  HistoryContentTile(
-                      heading: 'Simple', expr: '1234x1', result: '1234'),
-                  HistoryContentTile(
-                      heading: 'Simple', expr: '1234x1', result: '1234'),
-                ],
-              ),
-              HistoryTile(
-                date: '25/9/2021',
-                children: [
-                  HistoryContentTile(
-                      heading: 'Simple', expr: '1234x1', result: '1234'),
-                  HistoryContentTile(
-                      heading: 'Simple', expr: '1234x1', result: '1234'),
-                  HistoryContentTile(
-                      heading: 'Simple', expr: '1234x1', result: '1234'),
-                ],
-              ),
-            ],
-          ),
+          child: Consumer<HistoryModel>(builder: (context, model, child) {
+            return ListView.builder(
+              reverse: true,
+              itemCount: model.historyItemList.length,
+              itemBuilder: (context, index) {
+                var map = model.historyItemList[index];
+                print(map);
+                var exprList = map['expr'].toString().split(' ');
+                var resList = map['res'].toString().split(' ');
+                var typeList = map['type'].toString().split(' ');
+
+                print(exprList);
+
+                return HistoryTile(
+                    date: map['curdate'],
+                    children: List.generate(
+                        exprList.length,
+                        (i) => HistoryContentTile(
+                            heading: typeList[i],
+                            expr: exprList[i],
+                            result: resList[i])));
+              },
+            );
+          }),
         ),
       ),
     );

@@ -15,6 +15,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await MapData.init();
   await DatabaseController.init();
+  HistoryModel();
   runApp(MyApp());
 }
 

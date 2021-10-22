@@ -15,6 +15,10 @@ class ModeModel extends ChangeNotifier {
     changeMode('');
   }
 
+  String getTitle() {
+    return title;
+  }
+
   void changeMode(String mode) {
     switch (mode) {
       case 'simple':

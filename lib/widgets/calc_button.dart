@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:insta_calculator/models/calc.dart';
+import 'package:insta_calculator/models/history.dart';
+import 'package:insta_calculator/models/modes.dart';
 import 'package:insta_calculator/models/theme.dart';
 import 'package:provider/provider.dart';
 
@@ -65,14 +67,22 @@ class CalcButton extends StatelessWidget {
                       }
                     case 'equate':
                       {
-                        Provider.of<CalculateModel>(context, listen: false)
-                            .equate();
+                        var result =
+                            Provider.of<CalculateModel>(context, listen: false)
+                                .equate();
+                        var title =
+                            Provider.of<ModeModel>(context, listen: false)
+                                .getTitle();
+                        Provider.of<HistoryModel>(context, listen: false).store(
+                            expr: result?[0], result: result?[1], type: title);
+
                         break;
                       }
                     case 'clear':
                       {
                         Provider.of<CalculateModel>(context, listen: false)
                             .clear();
+
                         break;
                       }
                   }

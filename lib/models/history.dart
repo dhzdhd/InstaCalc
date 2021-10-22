@@ -1,15 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:insta_calculator/backend/database.dart';
 
 class HistoryModel extends ChangeNotifier {
-  static var historyItemList = [];
+  var historyItemList = [];
 
-  void clear() {
-    historyItemList.clear();
+  HistoryModel() {
+    historyItemList = DatabaseController.historyList;
+  }
+
+  Future<void> clear() async {
+    await DatabaseController.delete();
+    historyItemList = [];
     notifyListeners();
   }
 
   void fetch() {}
 
-  void store(
-      {required String expr, required String result, required String type}) {}
+  Future<void> store(
+      {required String expr,
+      required String result,
+      required String type}) async {
+    await DatabaseController.insert(expr: expr, res: result, type: type);
+
+    historyItemList = await DatabaseController.fetch();
+
+    notifyListeners();
+  }
 }
