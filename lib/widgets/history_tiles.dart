@@ -124,9 +124,12 @@ class HistoryContentTile extends StatelessWidget {
               padding: EdgeInsets.only(right: 10),
               child: Align(
                 alignment: Alignment.centerRight,
-                child: Text(
-                  expr,
-                  style: TextStyle(fontSize: 30),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Text(
+                    expr,
+                    style: TextStyle(fontSize: 30),
+                  ),
                 ),
               ),
             ),
@@ -134,9 +137,12 @@ class HistoryContentTile extends StatelessWidget {
               padding: EdgeInsets.only(right: 10),
               child: Align(
                 alignment: Alignment.centerRight,
-                child: Text(
-                  result,
-                  style: TextStyle(fontSize: 20),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Text(
+                    result,
+                    style: TextStyle(fontSize: 20),
+                  ),
                 ),
               ),
             ),

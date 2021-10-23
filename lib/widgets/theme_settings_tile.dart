@@ -31,14 +31,6 @@ class _ThemeSettingTileState extends State<ThemeSettingTile>
     );
   }
 
-  void _runExpandCheck() {
-    if (_controller.isDismissed) {
-      _controller.forward();
-    } else {
-      _controller.reverse();
-    }
-  }
-
   @override
   void dispose() {
     _controller.dispose();
@@ -57,18 +49,17 @@ class _ThemeSettingTileState extends State<ThemeSettingTile>
               Expanded(
                 child: Row(
                   children: [
-                    Flexible(flex: 1, child: Icon(Icons.palette)),
+                    Flexible(flex: 2, child: Icon(Icons.palette)),
                     Spacer(flex: 3),
-                    Flexible(
-                      flex: 5,
+                    Expanded(
+                      flex: 40,
                       child: Text(
                         'Theme',
                         style: TextStyle(fontSize: 17),
                       ),
                     ),
-                    Spacer(flex: 20),
+                    // Spacer(flex: 20),
                     Flexible(
-                      flex: 1,
                       child: AnimatedBuilder(
                         animation: _controller,
                         child: const Icon(Icons.keyboard_arrow_right),

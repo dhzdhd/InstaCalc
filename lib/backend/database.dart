@@ -58,7 +58,6 @@ class DatabaseController {
       await database.rawUpdate(
           'UPDATE history SET expr=?, res=?, type=? WHERE curdate=?',
           [newExpr, newRes, newType, dateString]);
-      print('updated');
     } else {
       newExpr = expr.trim();
       newRes = res.trim();
@@ -70,7 +69,6 @@ class DatabaseController {
         'res': newRes,
         'type': newType
       });
-      print('inserted');
     }
   }
 }

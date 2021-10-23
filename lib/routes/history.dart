@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:insta_calculator/models/history.dart';
+import 'package:insta_calculator/widgets/animated_button.dart';
 import 'package:insta_calculator/widgets/history_tiles.dart';
 import 'package:provider/provider.dart';
 
@@ -15,8 +16,7 @@ class HistoryRoute extends StatelessWidget {
           leading: NeumorphicBackButton(),
           title: Text('History'),
           actions: [
-            NeumorphicButton(
-              style: NeumorphicStyle(depth: 5),
+            AnimatedButtonWidget(
               child: Icon(Icons.delete_outline),
               onPressed: () async {
                 Provider.of<HistoryModel>(context, listen: false).clear();
