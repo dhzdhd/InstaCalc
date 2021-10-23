@@ -21,7 +21,7 @@ class _AnimatedButtonWidgetState extends State<AnimatedButtonWidget>
     super.initState();
     _controller =
         AnimationController(duration: Duration(milliseconds: 600), vsync: this);
-    _animation = _controller.drive(Tween<double>(begin: 1, end: 200));
+    _animation = _controller.drive(Tween<double>(begin: 1, end: 110));
   }
 
   @override
