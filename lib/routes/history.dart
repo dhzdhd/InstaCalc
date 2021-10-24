@@ -19,7 +19,7 @@ class HistoryRoute extends StatelessWidget {
             AnimatedButtonWidget(
               child: Icon(Icons.delete_outline),
               onPressed: () async {
-                Provider.of<HistoryModel>(context, listen: false).clear();
+                await Provider.of<HistoryModel>(context, listen: false).clear();
               },
             )
           ],

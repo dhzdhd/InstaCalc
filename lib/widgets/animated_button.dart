@@ -45,11 +45,11 @@ class _AnimatedButtonWidgetState extends State<AnimatedButtonWidget>
                 if (_controller.isDismissed) {
                   _controller
                       .forward()
+                      .then((_) => widget.onPressed())
                       .then((_) => _controller.reset())
                       .then((_) => _visible = !_visible);
                 }
               });
-              widget.onPressed();
             },
           ),
         );
