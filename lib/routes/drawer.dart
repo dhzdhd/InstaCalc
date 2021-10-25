@@ -24,7 +24,7 @@ class CustomDrawer extends StatelessWidget {
                       child: Text(
                         "InstaCalc",
                         style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height / 20,
+                          fontSize: 40,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -55,7 +55,8 @@ class DrawerFields extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(
+      child: ListView(
+        padding: EdgeInsets.zero,
         children: [
           Padding(
             padding: EdgeInsets.only(bottom: 3),
@@ -150,7 +151,6 @@ class DrawerFields extends StatelessWidget {
             ),
           ),
           Divider(),
-          Spacer(),
           Padding(
               padding: EdgeInsets.only(bottom: 3),
               child: CustomDrawerButton(
@@ -165,12 +165,15 @@ class DrawerFields extends StatelessWidget {
                       });
                 },
               )),
-          Padding(
-            padding: EdgeInsets.only(bottom: 15),
-            child: CustomDrawerButton(
-              text: 'Settings',
-              icon: Icons.settings,
-              func: () => Navigator.of(context).popAndPushNamed('/settings'),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: EdgeInsets.only(bottom: 15),
+              child: CustomDrawerButton(
+                text: 'Settings',
+                icon: Icons.settings,
+                func: () => Navigator.of(context).popAndPushNamed('/settings'),
+              ),
             ),
           ),
         ],

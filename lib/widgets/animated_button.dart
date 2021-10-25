@@ -20,7 +20,7 @@ class _AnimatedButtonWidgetState extends State<AnimatedButtonWidget>
   void initState() {
     super.initState();
     _controller =
-        AnimationController(duration: Duration(milliseconds: 600), vsync: this);
+        AnimationController(duration: Duration(milliseconds: 500), vsync: this);
     _animation = _controller.drive(Tween<double>(begin: 1, end: 110));
   }
 

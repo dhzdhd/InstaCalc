@@ -65,7 +65,7 @@ class ScientificContentContainer extends StatelessWidget {
                         width: MediaQuery.of(context).size.width,
                         child: Container(
                           color: model.baseColor,
-                          child: SimpleButtonContainer(
+                          child: CalcButtonWidget(
                             aspectRatio:
                                 MediaQuery.of(context).size.aspectRatio *
                                     15 /
@@ -82,7 +82,7 @@ class ScientificContentContainer extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 child: Padding(
                   padding: EdgeInsets.only(bottom: 20),
-                  child: SimpleButtonContainer(
+                  child: CalcButtonWidget(
                     aspectRatio:
                         MediaQuery.of(context).size.aspectRatio * 15 / 7,
                     buttonList: ButtonList.simpleButtonList,

@@ -32,8 +32,7 @@ class CustomDrawerButton extends StatelessWidget {
                 flex: 10,
                 child: Text(
                   text,
-                  style: TextStyle(
-                      fontSize: MediaQuery.of(context).size.height / 47),
+                  style: TextStyle(fontSize: 18),
                 ),
               ),
             ],

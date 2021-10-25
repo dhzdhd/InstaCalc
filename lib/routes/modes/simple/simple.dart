@@ -11,7 +11,7 @@ class SimpleContentContainer extends StatelessWidget {
       return Container(
         child: Column(
           children: [
-            Flexible(
+            Expanded(
               flex: 10,
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
@@ -21,8 +21,7 @@ class SimpleContentContainer extends StatelessWidget {
             Expanded(
               flex: 31,
               child: SizedBox(
-                width: MediaQuery.of(context).size.width,
-                child: SimpleButtonContainer(
+                child: CalcButtonWidget(
                   aspectRatio: MediaQuery.of(context).size.aspectRatio * 2,
                   buttonList: ButtonList.simpleButtonList,
                 ),

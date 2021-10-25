@@ -4,13 +4,13 @@ import 'package:insta_calculator/models/theme.dart';
 import 'package:insta_calculator/widgets/calc_button.dart';
 import 'package:provider/provider.dart';
 
-class SimpleButtonContainer extends StatelessWidget {
+class CalcButtonWidget extends StatelessWidget {
   final aspectRatio;
   final buttonList;
   final itemCount;
   late final items;
 
-  SimpleButtonContainer({
+  CalcButtonWidget({
     required this.aspectRatio,
     required this.buttonList,
     this.itemCount,
@@ -25,7 +25,7 @@ class SimpleButtonContainer extends StatelessWidget {
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             childAspectRatio: aspectRatio,
             crossAxisCount: 4,
-            mainAxisSpacing: 10,
+            mainAxisSpacing: MediaQuery.of(context).size.height / 52,
             crossAxisSpacing: 10,
           ),
           itemCount: itemCount ?? 20,

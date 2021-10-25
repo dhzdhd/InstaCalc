@@ -62,6 +62,7 @@ class MyApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               title: "InstaCalc",
               theme: model.theme,
+              darkTheme: model.theme,
               initialRoute: '/',
               routes: <String, Widget Function(BuildContext)>{
                 '/': (context) => HomeRoute(),

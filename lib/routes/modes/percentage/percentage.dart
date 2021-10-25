@@ -24,7 +24,7 @@ class PercentageContentContainer extends StatelessWidget {
               flex: 8,
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
-                child: SimpleButtonContainer(
+                child: CalcButtonWidget(
                   aspectRatio: MediaQuery.of(context).size.aspectRatio * 2,
                   buttonList: ButtonList.percentageButtonList,
                   itemCount: 16,

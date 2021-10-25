@@ -3,8 +3,8 @@ import 'package:math_expressions/math_expressions.dart';
 import 'package:provider/provider.dart';
 
 class CalculateModel extends ChangeNotifier {
-  static var topText = '';
-  static var bottomText = '';
+  var topText = '';
+  var bottomText = '';
 
   String evaluate(String expr) {
     if (expr == '') return '';
