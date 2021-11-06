@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:desktop_window/desktop_window.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:insta_calculator/backend/database.dart';
 import 'package:insta_calculator/backend/storage.dart';
@@ -18,7 +19,9 @@ import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  if (Platform.isWindows || Platform.isLinux) {
+  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+    await DesktopWindow.setMinWindowSize(Size(500, 1000));
+
     sqfliteFfiInit();
     databaseFactory = databaseFactoryFfi;
   }

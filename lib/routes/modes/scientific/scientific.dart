@@ -60,7 +60,7 @@ class ScientificContentContainer extends StatelessWidget {
                       ),
                     ),
                     Flexible(
-                      flex: 19,
+                      flex: 200,
                       child: SizedBox(
                         width: MediaQuery.of(context).size.width,
                         child: Container(

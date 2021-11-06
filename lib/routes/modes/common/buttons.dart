@@ -32,11 +32,12 @@ class CalcButtonWidget extends StatelessWidget {
           padding: EdgeInsets.all(10),
           itemBuilder: (context, index) {
             return CalcButton(
-                text: buttonList[index]['text'],
-                value: buttonList[index]['value'],
-                color: buttonList[index]['color'],
-                onPressed: buttonList[index]['func'],
-                fontSize: buttonList[index]['font']);
+              text: buttonList[index]['text'],
+              value: buttonList[index]['value'],
+              color: buttonList[index]['color'],
+              onPressed: buttonList[index]['func'],
+              fontSize: buttonList[index]['font'],
+            );
           },
         );
       }),

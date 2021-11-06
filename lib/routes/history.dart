@@ -46,12 +46,10 @@ class HistoryBody extends StatelessWidget {
               itemCount: model.historyItemList.length,
               itemBuilder: (context, index) {
                 var map = model.historyItemList[index];
-                print(map);
+
                 var exprList = map['expr'].toString().split(' ');
                 var resList = map['res'].toString().split(' ');
                 var typeList = map['type'].toString().split(' ');
-
-                print(exprList);
 
                 return HistoryTile(
                     date: map['curdate'],

@@ -7,24 +7,20 @@ import 'package:provider/provider.dart';
 
 class SimpleContentContainer extends StatelessWidget {
   Widget build(BuildContext context) {
+    print(MediaQuery.of(context).size.aspectRatio);
     return Consumer<ThemeModel>(builder: (context, model, child) {
       return Container(
         child: Column(
           children: [
-            Expanded(
+            Flexible(
               flex: 10,
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width,
-                child: FieldContainer(),
-              ),
+              child: FieldContainer(),
             ),
             Expanded(
               flex: 31,
-              child: SizedBox(
-                child: CalcButtonWidget(
-                  aspectRatio: MediaQuery.of(context).size.aspectRatio * 2,
-                  buttonList: ButtonList.simpleButtonList,
-                ),
+              child: CalcButtonWidget(
+                aspectRatio: MediaQuery.of(context).size.aspectRatio * 2,
+                buttonList: ButtonList.simpleButtonList,
               ),
             ),
           ],

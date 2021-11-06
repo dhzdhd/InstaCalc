@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:insta_calculator/models/calc.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter/services.dart';
 
 class FieldContainer extends StatefulWidget {
   @override
@@ -20,7 +20,7 @@ class _FieldContainerState extends State<FieldContainer> {
           boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(25)),
           depth: -5,
           lightSource: LightSource.topLeft,
-          intensity: 5,
+          intensity: 0.9,
         ),
         child: Consumer<CalculateModel>(builder: (context, model, child) {
           return Column(
@@ -30,15 +30,16 @@ class _FieldContainerState extends State<FieldContainer> {
                   child: Row(
                     children: [
                       Padding(
-                          padding: EdgeInsets.only(right: 10, left: 10, top: 5),
-                          child: NeumorphicButton(
-                            style: NeumorphicStyle(depth: 5),
-                            child: Icon(Icons.copy),
-                            onPressed: () => Clipboard.setData(ClipboardData(
-                                text: model.topText == ''
-                                    ? '${model.bottomText} = ${model.bottomText}'
-                                    : '${model.bottomText} = ${model.topText}')),
-                          )),
+                        padding: EdgeInsets.only(right: 10, left: 10, top: 5),
+                        child: NeumorphicButton(
+                          style: NeumorphicStyle(intensity: 0.9),
+                          child: const Icon(Icons.copy),
+                          onPressed: () => Clipboard.setData(ClipboardData(
+                              text: model.topText == ''
+                                  ? '${model.bottomText} = ${model.bottomText}'
+                                  : '${model.bottomText} = ${model.topText}')),
+                        ),
+                      ),
                       Expanded(
                         child: Align(
                           alignment: Alignment.centerRight,
