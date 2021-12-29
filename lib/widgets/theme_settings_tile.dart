@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:insta_calculator/models/theme.dart';
 import 'package:provider/provider.dart';
 
@@ -43,7 +42,7 @@ class _ThemeSettingTileState extends State<ThemeSettingTile>
       height: 150,
       child: Padding(
         padding: EdgeInsets.only(left: 10, right: 10, top: 10),
-        child: NeumorphicButton(
+        child: ElevatedButton(
           child: Column(
             children: [
               Expanded(
@@ -88,16 +87,17 @@ class _ThemeSettingTileState extends State<ThemeSettingTile>
                         child: SizedBox(
                           width: 50,
                           height: 50,
-                          child: NeumorphicRadio(
+                          // ! Change to radio!!!
+                          child: ElevatedButton(
                             child: Icon(Icons.dark_mode),
-                            groupValue: groupValue,
-                            value: Theme.dark,
-                            onChanged: (value) async {
+                            // groupValue: groupValue,
+                            // value: Theme.dark,
+                            onPressed: () async {
                               await Provider.of<ThemeModel>(context,
                                       listen: false)
                                   .changeTheme('dark');
                               setState(() {
-                                groupValue = value as Theme;
+                                // groupValue = value as Theme;
                               });
                             },
                           ),
@@ -109,16 +109,16 @@ class _ThemeSettingTileState extends State<ThemeSettingTile>
                         child: SizedBox(
                           width: 50,
                           height: 50,
-                          child: NeumorphicRadio(
+                          child: ElevatedButton(
                             child: Icon(Icons.light_mode_rounded),
-                            groupValue: groupValue,
-                            value: Theme.light,
-                            onChanged: (value) async {
+                            // groupValue: groupValue,
+                            // value: Theme.light,
+                            onPressed: () async {
                               await Provider.of<ThemeModel>(context,
                                       listen: false)
                                   .changeTheme('light');
                               setState(() {
-                                groupValue = value as Theme;
+                                // groupValue = value as Theme;
                               });
                             },
                           ),

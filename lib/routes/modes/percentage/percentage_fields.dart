@@ -1,5 +1,4 @@
-import 'package:flutter/services.dart';
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:flutter/material.dart';
 
 class PercentageField extends StatelessWidget {
   final placeholder;
@@ -11,8 +10,7 @@ class PercentageField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(right: 5, left: 5),
-      child: Neumorphic(
-        style: NeumorphicStyle(depth: -5),
+      child: Container(
         child: TextField(
           textAlign: textAlignment,
           readOnly: true,
@@ -61,8 +59,7 @@ class PercentageFieldContainer extends StatelessWidget {
               padding: EdgeInsets.only(left: 5, right: 5),
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
-                child: Neumorphic(
-                  style: NeumorphicStyle(depth: -5),
+                child: Container(
                   child: Column(
                     children: [
                       Flexible(

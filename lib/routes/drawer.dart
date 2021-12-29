@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:insta_calculator/models/calc.dart';
 import 'package:insta_calculator/models/modes.dart';
@@ -11,7 +10,7 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: Neumorphic(
+      child: Container(
         child: Column(
           children: [
             Flexible(
@@ -34,7 +33,7 @@ class CustomDrawer extends StatelessWidget {
                     ),
                     Flexible(
                       flex: 3,
-                      child: NeumorphicCloseButton(),
+                      child: CloseButton(),
                     )
                   ],
                 ),

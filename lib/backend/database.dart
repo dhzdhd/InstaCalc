@@ -1,4 +1,3 @@
-import 'package:sqflite_common/sqlite_api.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DatabaseController {

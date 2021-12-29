@@ -83,15 +83,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_neumorphic:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "1127907c574c6bce5b1485ac7021fb9c1e6f220c"
-      url: "https://github.com/alionour/Flutter-Neumorphic"
-    source: git
-    version: "3.1.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:insta_calculator/models/calc.dart';
 import 'package:provider/provider.dart';
 
@@ -14,14 +13,7 @@ class _FieldContainerState extends State<FieldContainer> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(left: 10, right: 10),
-      child: Neumorphic(
-        style: NeumorphicStyle(
-          shape: NeumorphicShape.concave,
-          boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(25)),
-          depth: -5,
-          lightSource: LightSource.topLeft,
-          intensity: 0.9,
-        ),
+      child: Container(
         child: Consumer<CalculateModel>(builder: (context, model, child) {
           return Column(
             children: [
@@ -31,8 +23,7 @@ class _FieldContainerState extends State<FieldContainer> {
                     children: [
                       Padding(
                         padding: EdgeInsets.only(right: 10, left: 10, top: 5),
-                        child: NeumorphicButton(
-                          style: NeumorphicStyle(intensity: 0.9),
+                        child: ElevatedButton(
                           child: const Icon(Icons.copy),
                           onPressed: () => Clipboard.setData(ClipboardData(
                               text: model.topText == ''

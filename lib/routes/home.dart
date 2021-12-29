@@ -1,4 +1,4 @@
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:flutter/material.dart';
 import 'package:insta_calculator/models/modes.dart';
 import 'package:insta_calculator/routes/drawer.dart';
 import 'package:provider/provider.dart';
@@ -8,8 +8,7 @@ class HomeRoute extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: NeumorphicAppBar(
-        padding: 18,
+      appBar: AppBar(
         title: Consumer<ModeModel>(
           builder: (context, model, child) {
             return Text(model.title);
@@ -18,7 +17,7 @@ class HomeRoute extends StatelessWidget {
         actions: [
           Hero(
             tag: 'history',
-            child: NeumorphicButton(
+            child: ElevatedButton(
               child: Icon(Icons.history),
               onPressed: () => Navigator.of(context).pushNamed('/history'),
             ),

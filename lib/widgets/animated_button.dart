@@ -1,4 +1,4 @@
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:flutter/material.dart';
 
 class AnimatedButtonWidget extends StatefulWidget {
   final Widget child;
@@ -37,7 +37,7 @@ class _AnimatedButtonWidgetState extends State<AnimatedButtonWidget>
       builder: (_, child) {
         return Transform.scale(
           scale: _animation.value,
-          child: NeumorphicButton(
+          child: ElevatedButton(
             child: Visibility(visible: _visible, child: widget.child),
             onPressed: () {
               setState(() {

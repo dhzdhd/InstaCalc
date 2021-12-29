@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:insta_calculator/models/calc.dart';
 import 'package:insta_calculator/models/history.dart';
 import 'package:insta_calculator/models/modes.dart';
@@ -26,14 +25,13 @@ class CalcButton extends StatelessWidget {
     return GestureDetector(
       child: Consumer<ThemeModel>(
         builder: (context, model, child) {
-          return NeumorphicButton(
-            style: NeumorphicStyle(
-              color: color == 'int'
-                  ? model.baseColor
+          return ElevatedButton(
+            style: ButtonStyle(
+              backgroundColor: color == 'int'
+                  ? MaterialStateProperty.all(model.baseColor)
                   : color == 'nonint'
-                      ? model.secondaryColor
-                      : model.equalColor,
-              boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(30)),
+                      ? MaterialStateProperty.all(model.secondaryColor)
+                      : MaterialStateProperty.all(model.equalColor),
             ),
             child: Align(
               alignment: Alignment.center,

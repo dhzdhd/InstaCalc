@@ -1,23 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:insta_calculator/backend/storage.dart';
 
 final lightBaseColor = Color.fromARGB(255, 235, 235, 255);
 final lightTextColor = Color.fromARGB(255, 77, 77, 123);
 final lightTextStyle = TextStyle(color: lightTextColor, fontFamily: 'Cairo');
-final lightTheme = NeumorphicThemeData(
-  baseColor: Color.fromARGB(255, 235, 235, 255),
-  appBarTheme: NeumorphicAppBarThemeData(
+final lightTheme = ThemeData(
+  backgroundColor: lightBaseColor,
+  scaffoldBackgroundColor: lightBaseColor,
+  appBarTheme: AppBarTheme(
     iconTheme: IconThemeData(color: lightTextColor),
-    textStyle: TextStyle(
+    titleTextStyle: TextStyle(
       color: lightTextColor,
       fontFamily: 'Cairo',
       fontWeight: FontWeight.bold,
-    ),
-    buttonStyle: NeumorphicStyle(
-      depth: 5,
-      lightSource: LightSource.topRight,
     ),
   ),
   textTheme: TextTheme(
@@ -35,31 +30,21 @@ final lightTheme = NeumorphicThemeData(
     button: lightTextStyle,
     overline: lightTextStyle,
   ),
-  buttonStyle: NeumorphicStyle(
-    depth: 5,
-    lightSource: LightSource.topRight,
-  ),
   iconTheme: IconThemeData(color: lightTextColor, size: 25),
 );
 
 final darkBaseColor = Color.fromARGB(255, 46, 46, 61);
 final darkTextColor = Color.fromARGB(255, 255, 230, 230);
 final darkTextStyle = TextStyle(color: darkTextColor, fontFamily: 'Cairo');
-final darkTheme = NeumorphicThemeData(
-  shadowLightColor: Color.fromARGB(255, 46, 46, 61),
-  shadowLightColorEmboss: Color.fromARGB(255, 46, 46, 61),
-  shadowDarkColor: Color.fromARGB(255, 20, 20, 20),
-  baseColor: Color.fromARGB(255, 46, 46, 61),
-  appBarTheme: NeumorphicAppBarThemeData(
+final darkTheme = ThemeData(
+  backgroundColor: darkBaseColor,
+  scaffoldBackgroundColor: darkBaseColor,
+  appBarTheme: AppBarTheme(
     iconTheme: IconThemeData(color: darkTextColor),
-    textStyle: TextStyle(
+    titleTextStyle: TextStyle(
       color: darkTextColor,
       fontFamily: 'Cairo',
       fontWeight: FontWeight.bold,
-    ),
-    buttonStyle: NeumorphicStyle(
-      depth: 5,
-      lightSource: LightSource.topRight,
     ),
   ),
   textTheme: TextTheme(
@@ -76,10 +61,6 @@ final darkTheme = NeumorphicThemeData(
     caption: darkTextStyle,
     button: darkTextStyle,
     overline: darkTextStyle,
-  ),
-  buttonStyle: NeumorphicStyle(
-    depth: 5,
-    lightSource: LightSource.topRight,
   ),
   iconTheme: IconThemeData(color: darkTextColor, size: 25),
 );

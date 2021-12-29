@@ -1,23 +1,19 @@
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:flutter/material.dart';
 import 'package:insta_calculator/widgets/theme_settings_tile.dart';
 
 class SettingsRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: NeumorphicAppBar(
+      appBar: AppBar(
         title: Text('Settings'),
-        leading: NeumorphicBackButton(),
+        leading: BackButton(),
       ),
       body: Container(
         child: Padding(
           padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
           child: SizedBox.expand(
-            child: Neumorphic(
-              style: NeumorphicStyle(
-                lightSource: LightSource.topLeft,
-                depth: -5,
-              ),
+            child: Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [

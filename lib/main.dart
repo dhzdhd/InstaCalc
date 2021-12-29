@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:desktop_window/desktop_window.dart';
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:flutter/material.dart';
 import 'package:insta_calculator/backend/database.dart';
 import 'package:insta_calculator/backend/storage.dart';
 import 'package:insta_calculator/models/calc.dart';
@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
         builder: (builder, model, child) {
           return ConstrainedBox(
             constraints: BoxConstraints(minWidth: 2000),
-            child: NeumorphicApp(
+            child: MaterialApp(
               builder: (context, child) {
                 return ScrollConfiguration(
                   behavior: RemoveSplashBehaviour(),

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:insta_calculator/models/history.dart';
 import 'package:insta_calculator/widgets/animated_button.dart';
 import 'package:insta_calculator/widgets/history_tiles.dart';
@@ -12,8 +10,8 @@ class HistoryRoute extends StatelessWidget {
     return Hero(
       tag: 'history',
       child: Scaffold(
-        appBar: NeumorphicAppBar(
-          leading: NeumorphicBackButton(),
+        appBar: AppBar(
+          leading: BackButton(),
           title: Text('History'),
           actions: [
             AnimatedButtonWidget(
@@ -36,10 +34,7 @@ class HistoryBody extends StatelessWidget {
     return SizedBox(
       child: Padding(
         padding: EdgeInsets.fromLTRB(10, 0, 10, 10),
-        child: Neumorphic(
-          style: NeumorphicStyle(
-            depth: -5,
-          ),
+        child: Container(
           child: Consumer<HistoryModel>(builder: (context, model, child) {
             return ListView.builder(
               reverse: true,

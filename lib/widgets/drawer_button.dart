@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class CustomDrawerButton extends StatelessWidget {
   final icon;
@@ -16,11 +15,8 @@ class CustomDrawerButton extends StatelessWidget {
       child: SizedBox(
         height: 50,
         width: MediaQuery.of(context).size.width,
-        child: NeumorphicButton(
+        child: ElevatedButton(
           onPressed: () => func(),
-          style: NeumorphicStyle(
-            lightSource: LightSource.topLeft,
-          ),
           child: Row(
             children: [
               Flexible(

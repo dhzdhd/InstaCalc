@@ -1,4 +1,4 @@
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:flutter/material.dart';
 import 'package:insta_calculator/models/theme.dart';
 import 'package:insta_calculator/routes/modes/common/button_list.dart';
 import 'package:insta_calculator/routes/modes/common/buttons.dart';
@@ -28,8 +28,7 @@ class ScientificContentContainer extends StatelessWidget {
               minHeight: 30,
               collapsed: Padding(
                 padding: EdgeInsets.all(5),
-                child: Neumorphic(
-                  style: NeumorphicStyle(color: ThemeModel().equalColor),
+                child: Container(
                   child: Align(
                     alignment: Alignment.topCenter,
                     child: Icon(
@@ -46,9 +45,7 @@ class ScientificContentContainer extends StatelessWidget {
                       flex: 1,
                       child: Padding(
                         padding: EdgeInsets.only(right: 10, left: 10, top: 5),
-                        child: Neumorphic(
-                          style:
-                              NeumorphicStyle(color: ThemeModel().equalColor),
+                        child: Container(
                           child: Align(
                             alignment: Alignment.topCenter,
                             child: Icon(

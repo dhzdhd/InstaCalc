@@ -1,4 +1,4 @@
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:flutter/material.dart';
 import 'package:insta_calculator/models/theme.dart';
 import 'package:provider/provider.dart';
 
@@ -16,8 +16,7 @@ class HelpDialog extends StatelessWidget {
             ),
             child: Padding(
               padding: EdgeInsets.all(5),
-              child: Neumorphic(
-                style: NeumorphicStyle(depth: -10),
+              child: Container(
                 child: Column(
                   children: [
                     Expanded(
@@ -26,7 +25,7 @@ class HelpDialog extends StatelessWidget {
                       style: TextStyle(fontSize: 30),
                     )),
                     Flexible(
-                      child: NeumorphicButton(
+                      child: ElevatedButton(
                         child: Text('Understood'),
                         onPressed: () => Navigator.of(context).pop(),
                       ),

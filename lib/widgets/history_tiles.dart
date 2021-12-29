@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:flutter/material.dart';
 
 class HistoryTile extends StatefulWidget {
   final String date;
@@ -38,13 +38,10 @@ class _HistoryTileState extends State<HistoryTile>
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
-      child: NeumorphicButton(
-        padding: EdgeInsets.zero,
-        style: NeumorphicStyle(depth: 2),
+      child: ElevatedButton(
         child: Padding(
           padding: EdgeInsets.all(0),
-          child: Neumorphic(
-            style: NeumorphicStyle(depth: 5),
+          child: Container(
             child: Column(children: [
               Row(
                 children: [
@@ -106,8 +103,7 @@ class HistoryContentTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(5),
-      child: Neumorphic(
-        style: NeumorphicStyle(depth: -5),
+      child: Container(
         child: Column(
           children: [
             Padding(
