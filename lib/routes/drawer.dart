@@ -103,20 +103,6 @@ class DrawerFields extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(bottom: 3),
             child: CustomDrawerButton(
-              text: 'Number system',
-              icon: FontAwesomeIcons.sortNumericUp,
-              func: () {
-                Navigator.of(context).pop();
-                Provider.of<CalculateModel>(context, listen: false)
-                    .clear(all: true);
-                Provider.of<ModeModel>(context, listen: false)
-                    .changeMode('number');
-              },
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(bottom: 3),
-            child: CustomDrawerButton(
               text: 'Currency',
               icon: Icons.monetization_on,
               func: () {
@@ -135,18 +121,6 @@ class DrawerFields extends StatelessWidget {
                 Navigator.of(context).pop();
                 Provider.of<ModeModel>(context, listen: false)
                     .changeMode('units');
-              },
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(bottom: 5),
-            child: CustomDrawerButton(
-              text: 'Significant Digit',
-              icon: FontAwesomeIcons.creativeCommonsZero,
-              func: () {
-                Navigator.of(context).pop();
-                Provider.of<ModeModel>(context, listen: false)
-                    .changeMode('sigdigit');
               },
             ),
           ),
