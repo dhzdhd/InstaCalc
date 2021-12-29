@@ -8,12 +8,13 @@ final lightTheme = ThemeData(
   backgroundColor: lightBaseColor,
   scaffoldBackgroundColor: lightBaseColor,
   appBarTheme: AppBarTheme(
+    backgroundColor: lightBaseColor,
     iconTheme: IconThemeData(color: lightTextColor),
     titleTextStyle: TextStyle(
-      color: lightTextColor,
-      fontFamily: 'Cairo',
-      fontWeight: FontWeight.bold,
-    ),
+        color: lightTextColor,
+        fontFamily: 'Cairo',
+        fontWeight: FontWeight.bold,
+        fontSize: 20),
   ),
   textTheme: TextTheme(
     headline1: lightTextStyle,
@@ -31,6 +32,15 @@ final lightTheme = ThemeData(
     overline: lightTextStyle,
   ),
   iconTheme: IconThemeData(color: lightTextColor, size: 25),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ButtonStyle(
+      elevation: MaterialStateProperty.all(4),
+      backgroundColor: MaterialStateProperty.all(lightBaseColor),
+    ),
+  ),
+  drawerTheme: DrawerThemeData(
+    backgroundColor: lightBaseColor,
+  ),
 );
 
 final darkBaseColor = Color.fromARGB(255, 46, 46, 61);
@@ -40,11 +50,13 @@ final darkTheme = ThemeData(
   backgroundColor: darkBaseColor,
   scaffoldBackgroundColor: darkBaseColor,
   appBarTheme: AppBarTheme(
+    backgroundColor: darkBaseColor,
     iconTheme: IconThemeData(color: darkTextColor),
     titleTextStyle: TextStyle(
       color: darkTextColor,
       fontFamily: 'Cairo',
       fontWeight: FontWeight.bold,
+      fontSize: 20,
     ),
   ),
   textTheme: TextTheme(
@@ -63,6 +75,15 @@ final darkTheme = ThemeData(
     overline: darkTextStyle,
   ),
   iconTheme: IconThemeData(color: darkTextColor, size: 25),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ButtonStyle(
+      elevation: MaterialStateProperty.all(4),
+      backgroundColor: MaterialStateProperty.all(darkBaseColor),
+    ),
+  ),
+  drawerTheme: DrawerThemeData(
+    backgroundColor: darkBaseColor,
+  ),
 );
 
 class ThemeModel extends ChangeNotifier {

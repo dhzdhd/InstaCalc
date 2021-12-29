@@ -87,18 +87,12 @@ class _ThemeSettingTileState extends State<ThemeSettingTile>
                         child: SizedBox(
                           width: 50,
                           height: 50,
-                          // ! Change to radio!!!
                           child: ElevatedButton(
                             child: Icon(Icons.dark_mode),
-                            // groupValue: groupValue,
-                            // value: Theme.dark,
                             onPressed: () async {
                               await Provider.of<ThemeModel>(context,
                                       listen: false)
                                   .changeTheme('dark');
-                              setState(() {
-                                // groupValue = value as Theme;
-                              });
                             },
                           ),
                         ),
@@ -111,15 +105,10 @@ class _ThemeSettingTileState extends State<ThemeSettingTile>
                           height: 50,
                           child: ElevatedButton(
                             child: Icon(Icons.light_mode_rounded),
-                            // groupValue: groupValue,
-                            // value: Theme.light,
                             onPressed: () async {
                               await Provider.of<ThemeModel>(context,
                                       listen: false)
                                   .changeTheme('light');
-                              setState(() {
-                                // groupValue = value as Theme;
-                              });
                             },
                           ),
                         ),

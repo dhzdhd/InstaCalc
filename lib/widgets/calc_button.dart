@@ -27,6 +27,8 @@ class CalcButton extends StatelessWidget {
         builder: (context, model, child) {
           return ElevatedButton(
             style: ButtonStyle(
+              shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30))),
               backgroundColor: color == 'int'
                   ? MaterialStateProperty.all(model.baseColor)
                   : color == 'nonint'
