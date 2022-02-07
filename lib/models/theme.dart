@@ -52,6 +52,7 @@ final darkTheme = ThemeData(
   appBarTheme: AppBarTheme(
     backgroundColor: darkBaseColor,
     iconTheme: IconThemeData(color: darkTextColor),
+    elevation: 0,
     titleTextStyle: TextStyle(
       color: darkTextColor,
       fontFamily: 'Cairo',
@@ -77,7 +78,22 @@ final darkTheme = ThemeData(
   iconTheme: IconThemeData(color: darkTextColor, size: 25),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
-      elevation: MaterialStateProperty.all(4),
+      elevation: MaterialStateProperty.resolveWith((states) {
+        const interactiveStates = <MaterialState>{
+          MaterialState.pressed,
+        };
+        if (states.any(interactiveStates.contains)) {
+          return 0.0;
+        }
+        return 4.0;
+      }),
+      backgroundColor: MaterialStateProperty.all(darkBaseColor),
+      foregroundColor: MaterialStateProperty.all(darkTextColor),
+    ),
+  ),
+  textButtonTheme: TextButtonThemeData(
+    style: ButtonStyle(
+      foregroundColor: MaterialStateProperty.all(darkTextColor),
       backgroundColor: MaterialStateProperty.all(darkBaseColor),
     ),
   ),

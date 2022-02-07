@@ -37,7 +37,7 @@ class _AnimatedButtonWidgetState extends State<AnimatedButtonWidget>
       builder: (_, child) {
         return Transform.scale(
           scale: _animation.value,
-          child: ElevatedButton(
+          child: TextButton(
             child: Visibility(visible: _visible, child: widget.child),
             onPressed: () {
               setState(() {

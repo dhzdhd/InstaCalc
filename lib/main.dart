@@ -52,27 +52,23 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => PercentageCalculateModel()),
       ],
       child: Consumer<ThemeModel>(
-        builder: (builder, model, child) {
-          return ConstrainedBox(
-            constraints: BoxConstraints(minWidth: 2000),
-            child: MaterialApp(
-              builder: (context, child) {
-                return ScrollConfiguration(
-                  behavior: RemoveSplashBehaviour(),
-                  child: child as Widget,
-                );
-              },
-              debugShowCheckedModeBanner: false,
-              title: "InstaCalc",
-              theme: model.theme,
-              darkTheme: model.theme,
-              initialRoute: '/',
-              routes: <String, Widget Function(BuildContext)>{
-                '/': (context) => HomeRoute(),
-                '/settings': (context) => SettingsRoute(),
-                '/history': (context) => HistoryRoute(),
-              },
-            ),
+        builder: (_, model, __) {
+          return MaterialApp(
+            builder: (context, child) {
+              return ScrollConfiguration(
+                behavior: RemoveSplashBehaviour(),
+                child: child!,
+              );
+            },
+            debugShowCheckedModeBanner: false,
+            title: "InstaCalc",
+            theme: model.theme,
+            initialRoute: '/',
+            routes: <String, Widget Function(BuildContext)>{
+              '/': (context) => HomeRoute(),
+              '/settings': (context) => SettingsRoute(),
+              '/history': (context) => HistoryRoute(),
+            },
           );
         },
       ),

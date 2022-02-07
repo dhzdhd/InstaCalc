@@ -17,7 +17,7 @@ class HomeRoute extends StatelessWidget {
         actions: [
           Hero(
             tag: 'history',
-            child: ElevatedButton(
+            child: TextButton(
               child: Icon(Icons.history),
               onPressed: () => Navigator.of(context).pushNamed('/history'),
             ),
