@@ -16,6 +16,8 @@ class _HistoryTileState extends State<HistoryTile>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late final Animation<double> _animation;
+  var _offset = 0.0;
+  var _buttonVisibility = false;
 
   @override
   void initState() {
@@ -38,54 +40,89 @@ class _HistoryTileState extends State<HistoryTile>
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
-      child: ElevatedButton(
-        child: Padding(
-          padding: EdgeInsets.all(0),
-          child: Container(
-            child: Column(children: [
-              Row(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(widget.date, style: TextStyle(fontSize: 25)),
-                    ),
-                  ),
-                  Spacer(),
-                  Padding(
-                    padding: EdgeInsets.only(right: 10),
-                    child: AnimatedBuilder(
-                      animation: _controller,
-                      child: const Icon(Icons.keyboard_arrow_right),
-                      builder: (_, child) {
-                        return Transform.rotate(
-                          angle: _animation.value * pi / 2,
-                          child: child,
-                        );
-                      },
-                    ),
-                  )
-                ],
-              ),
-              SizeTransition(
-                sizeFactor: _animation,
-                child: Container(
-                  child: Column(
-                    children: widget.children,
+      child: Stack(
+        children: [
+          Visibility(
+            visible: _buttonVisibility,
+            child: ElevatedButton(onPressed: () {}, child: Text('delete')),
+          ),
+          Transform.translate(
+            offset: Offset(_offset, 0),
+            child: GestureDetector(
+              onHorizontalDragEnd: (details) {
+                setState(() {
+                  if (!(_offset == 80)) {
+                    _offset = 0;
+                  }
+                });
+              },
+              onHorizontalDragUpdate: ((details) {
+                print(details.localPosition.dx);
+                setState(() {
+                  if (details.localPosition.dx >= 80) {
+                    _offset = 80;
+                    _buttonVisibility = true;
+                  } else {
+                    _buttonVisibility = false;
+                    _offset = details.localPosition.dx;
+                  }
+                });
+
+                setState(() {});
+              }),
+              child: ElevatedButton(
+                child: Padding(
+                  padding: EdgeInsets.all(0),
+                  child: Container(
+                    child: Column(children: [
+                      Row(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(left: 10),
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(widget.date,
+                                  style: TextStyle(fontSize: 25)),
+                            ),
+                          ),
+                          Spacer(),
+                          Padding(
+                            padding: EdgeInsets.only(right: 10),
+                            child: AnimatedBuilder(
+                              animation: _controller,
+                              child: const Icon(Icons.keyboard_arrow_right),
+                              builder: (_, child) {
+                                return Transform.rotate(
+                                  angle: _animation.value * pi / 2,
+                                  child: child,
+                                );
+                              },
+                            ),
+                          )
+                        ],
+                      ),
+                      SizeTransition(
+                        sizeFactor: _animation,
+                        child: Container(
+                          child: Column(
+                            children: widget.children,
+                          ),
+                        ),
+                      )
+                    ]),
                   ),
                 ),
-              )
-            ]),
+                onPressed: () {
+                  setState(() {
+                    _controller.isDismissed
+                        ? _controller.forward()
+                        : _controller.reverse();
+                  });
+                },
+              ),
+            ),
           ),
-        ),
-        onPressed: () {
-          setState(() {
-            _controller.isDismissed
-                ? _controller.forward()
-                : _controller.reverse();
-          });
-        },
+        ],
       ),
     );
   }
