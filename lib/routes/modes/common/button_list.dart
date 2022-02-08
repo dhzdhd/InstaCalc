@@ -9,7 +9,7 @@ class ButtonList {
     {'text': '7', 'value': '7', 'color': 'int', 'func': 'calc'},
     {'text': '8', 'value': '8', 'color': 'int', 'func': 'calc'},
     {'text': '9', 'value': '9', 'color': 'int', 'func': 'calc'},
-    {'text': 'x', 'value': 'x', 'color': 'nonint', 'func': 'calc'},
+    {'text': '\u{2715}', 'value': 'x', 'color': 'nonint', 'func': 'calc'},
     {'text': '4', 'value': '4', 'color': 'int', 'func': 'calc'},
     {'text': '5', 'value': '5', 'color': 'int', 'func': 'calc'},
     {'text': '6', 'value': '6', 'color': 'int', 'func': 'calc'},

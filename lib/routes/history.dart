@@ -36,24 +36,28 @@ class HistoryBody extends StatelessWidget {
         padding: EdgeInsets.fromLTRB(10, 0, 10, 10),
         child: Container(
           child: Consumer<HistoryModel>(builder: (context, model, child) {
+            print(model.historyItemList);
             return ListView.builder(
               reverse: true,
               itemCount: model.historyItemList.length,
               itemBuilder: (context, index) {
-                var map = model.historyItemList[index];
+                final map = model.historyItemList[index];
 
-                var exprList = map['expr'].toString().split(' ');
-                var resList = map['res'].toString().split(' ');
-                var typeList = map['type'].toString().split(' ');
+                final exprList = map['expr'].toString().split(' ');
+                final resList = map['res'].toString().split(' ');
+                final typeList = map['type'].toString().split(' ');
 
                 return HistoryTile(
-                    date: map['curdate'],
-                    children: List.generate(
-                        exprList.length,
-                        (i) => HistoryContentTile(
-                            heading: typeList[i],
-                            expr: exprList[i],
-                            result: resList[i])));
+                  date: map['curdate'],
+                  children: List.generate(
+                    exprList.length,
+                    (i) => HistoryContentTile(
+                      heading: typeList[i],
+                      expr: exprList[i],
+                      result: resList[i],
+                    ),
+                  ),
+                );
               },
             );
           }),

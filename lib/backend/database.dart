@@ -24,10 +24,6 @@ class DatabaseController {
     return rows;
   }
 
-  static Future<List<Map>> fetchRow({required String where}) async {
-    return await database.query('history', where: where);
-  }
-
   static Future<void> delete() async {
     await database.delete('history');
   }
@@ -35,7 +31,7 @@ class DatabaseController {
   static Future<void> insert(
       {required String expr, required String res, required String type}) async {
     var date = DateTime.now();
-    var dateString = '${date.year}-${date.month}-${date.day}';
+    var dateString = '${date.day}/${date.month}/${date.year}';
     late String newExpr;
     late String newRes;
     late String newType;
