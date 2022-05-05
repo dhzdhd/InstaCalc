@@ -5,3 +5,4 @@
 *.txt linguist-detectable=false
 *.h linguist-detectable=false
 *.cc linguist-detectable=false
+*.kt linguist-detectable=false
